@@ -24,7 +24,11 @@ class Problem01Test
   test("find the last in normal list recursive") {
     import org.ak.scala.nn_problems.p01.Problem01.recursiveLast
 
-    forAll(Gen.nonEmptyListOf(Int)) {
+    forAll(
+      Gen.nonEmptyListOf(
+        Gen.chooseNum(1, Int.MaxValue)
+      )
+    ) {
       list =>
         recursiveLast(list) shouldEqual list.last
     }
@@ -34,7 +38,11 @@ class Problem01Test
   test("find the last in normal list iterative") {
     import org.ak.scala.nn_problems.p01.Problem01.iterativeLast
 
-    forAll(Gen.nonEmptyListOf(Int)) {
+    forAll(
+      Gen.nonEmptyListOf(
+        Gen.chooseNum(1, Int.MaxValue)
+      )
+    ) {
       list =>
         iterativeLast(list) shouldEqual list.last
     }
@@ -45,7 +53,9 @@ class Problem01Test
   test("recursive last with empty list") {
     import org.ak.scala.nn_problems.p01.Problem01.recursiveLast
 
-    forAll(Gen.oneOf(List.empty, Nil, List())) {
+    forAll(
+      Gen.oneOf(List.empty, Nil, List())
+    ) {
       anEmptyList =>
         intercept[NoSuchElementException] {
           recursiveLast(anEmptyList)
@@ -58,7 +68,9 @@ class Problem01Test
   test("iterative last with empty list") {
     import org.ak.scala.nn_problems.p01.Problem01.iterativeLast
 
-    forAll(Gen.oneOf(List.empty, Nil, List())) {
+    forAll(
+      Gen.oneOf(List.empty, Nil, List())
+    ) {
       anEmptyList =>
         intercept[NoSuchElementException] {
           iterativeLast(anEmptyList)
