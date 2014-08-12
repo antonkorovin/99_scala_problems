@@ -26,7 +26,7 @@ class Problem01Test
 
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(1, Int.MaxValue)
+        Gen.chooseNum(Int.MinValue, Int.MaxValue)
       )
     ) {
       list =>
@@ -40,7 +40,7 @@ class Problem01Test
 
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(1, Int.MaxValue)
+        Gen.chooseNum(Int.MinValue, Int.MaxValue)
       )
     ) {
       list =>

@@ -22,7 +22,7 @@ class Problem02Test
   test("find penultimate in normal list") {
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(2, Int.MaxValue)
+        Gen.chooseNum(Int.MinValue, Int.MaxValue)
       )
     ) {
       list =>

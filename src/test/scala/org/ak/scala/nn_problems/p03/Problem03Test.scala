@@ -20,7 +20,7 @@ with GeneratorDrivenPropertyChecks {
   test("find nth in normal list") {
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(1, Int.MaxValue)
+        Gen.chooseNum(Int.MinValue, Int.MaxValue)
       )
     ) {
       list =>
