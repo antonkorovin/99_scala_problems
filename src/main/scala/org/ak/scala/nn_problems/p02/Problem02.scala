@@ -19,10 +19,10 @@ object Problem02 {
   @tailrec
   def penultimateRecursive[T](list: List[T]): T = list match {
     // Empty and one element list are not acceptable
-    case Nil | _ :: Nil =>
+    case Nil | _ :: Nil=>
       throw new NoSuchElementException
 
-    case _ :: penultimate :: _ :: Nil =>
+    case penultimate :: _ :: Nil =>
       penultimate
 
     case head :: tail =>

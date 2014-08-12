@@ -1,5 +1,6 @@
 package org.ak.scala.nn_problems.p02
 
+import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
 
@@ -15,5 +16,19 @@ class Problem02Test
 
   test("example test") {
     Problem02.penultimateRecursive(List(1, 1, 2, 3, 5, 8)) shouldEqual 5
+  }
+
+
+  test("find penultimate in normal list") {
+    forAll(
+      Gen.nonEmptyListOf(
+        Gen.chooseNum(2, Int.MaxValue)
+      )
+    ) {
+      list =>
+        whenever(list.size > 1) {
+          Problem02.penultimateRecursive(list) shouldEqual list(list.size - 2)
+        }
+    }
   }
 }
