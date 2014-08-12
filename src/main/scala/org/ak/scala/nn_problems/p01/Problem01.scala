@@ -1,5 +1,4 @@
-package org.ak.scala.nn_problems
-
+package org.ak.scala.nn_problems.p01
 
 import scala.annotation.tailrec
 
