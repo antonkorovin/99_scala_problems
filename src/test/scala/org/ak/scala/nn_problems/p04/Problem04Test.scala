@@ -1,0 +1,31 @@
+package org.ak.scala.nn_problems.p04
+
+import org.scalacheck.Gen
+import org.scalatest.prop.GeneratorDrivenPropertyChecks
+import org.scalatest.{Matchers, FunSuite}
+
+/**
+ * @author antonk
+ * @since  8/12/14 - 5:46 PM
+ */
+class Problem04Test
+  extends FunSuite
+  with Matchers
+  with GeneratorDrivenPropertyChecks {
+
+  test("example test") {
+    Problem04.length(List(1, 1, 2, 3, 5, 8)) shouldEqual 6
+  }
+
+
+  test("find length in normal list") {
+    forAll(
+      Gen.listOf(
+        Gen.chooseNum(Int.MinValue, Int.MaxValue)
+      )
+    ) {
+      list =>
+        Problem04.length(list) shouldEqual list.size
+    }
+  }
+}
