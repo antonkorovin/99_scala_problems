@@ -17,7 +17,7 @@ with GeneratorDrivenPropertyChecks {
   }
 
 
-  test("find nth in normal list") {
+  test("find nth element in normal list") {
     forAll(
       Gen.nonEmptyListOf(
         Gen.chooseNum(Int.MinValue, Int.MaxValue)
@@ -32,7 +32,7 @@ with GeneratorDrivenPropertyChecks {
   }
 
 
-  test("find nth in empty list") {
+  test("find nth element in empty list") {
     forAll(
       Gen.oneOf(List.empty, Nil, List())
     ) {
@@ -51,7 +51,7 @@ with GeneratorDrivenPropertyChecks {
   }
 
 
-  test("find nth (out-of-bound) in normal list") {
+  test("find nth (out-of-bound) element in normal list") {
     forAll(
       Gen.nonEmptyListOf(
         Gen.chooseNum(Int.MinValue, Int.MaxValue)
