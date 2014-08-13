@@ -7,12 +7,12 @@ import scala.annotation.tailrec
  * @since  8/12/14 - 2:16 PM
  */
 object Problem03 {
-  // Find the Kth element of a list.
-  // By convention, the first element in the list is element 0.
-  // Example:
-  //  scala> nth(2, List(1, 1, 2, 3, 5, 8))
-  // res0: Int = 2
-
+  //  P03 (*) Find the Kth element of a list.
+  //  By convention, the first element in the list is element 0.
+  //  Example:
+  //
+  //    scala> nth(2, List(1, 1, 2, 3, 5, 8))
+  //  res0: Int = 2
 
   @tailrec
   def nth[T](n: Int, list: List[T]): T = {
