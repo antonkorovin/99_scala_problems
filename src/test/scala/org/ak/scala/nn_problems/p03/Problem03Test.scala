@@ -1,5 +1,6 @@
 package org.ak.scala.nn_problems.p03
 
+import org.ak.scala.nn_problems.GenUtil
 import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
@@ -20,7 +21,7 @@ with GeneratorDrivenPropertyChecks {
   test("find nth element in normal list") {
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(Int.MinValue, Int.MaxValue)
+        GenUtil.chooseAllOfInt()
       )
     ) {
       list =>
@@ -38,7 +39,7 @@ with GeneratorDrivenPropertyChecks {
     ) {
       anEmptyList => {
         forAll(
-          Gen.chooseNum(Int.MinValue, Int.MaxValue)
+          GenUtil.chooseAllOfInt()
         ) {
           index => {
             intercept[IndexOutOfBoundsException] {
@@ -54,7 +55,7 @@ with GeneratorDrivenPropertyChecks {
   test("find nth (out-of-bound) element in normal list") {
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(Int.MinValue, Int.MaxValue)
+        GenUtil.chooseAllOfInt()
       )
     ) {
       list => {

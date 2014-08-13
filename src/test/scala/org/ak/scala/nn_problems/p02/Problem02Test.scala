@@ -1,5 +1,6 @@
 package org.ak.scala.nn_problems.p02
 
+import org.ak.scala.nn_problems.GenUtil
 import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
@@ -22,7 +23,7 @@ class Problem02Test
   test("find penultimate in normal list") {
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(Int.MinValue, Int.MaxValue)
+        GenUtil.chooseAllOfInt()
       )
     ) {
       list =>

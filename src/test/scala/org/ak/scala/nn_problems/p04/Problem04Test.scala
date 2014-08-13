@@ -1,5 +1,6 @@
 package org.ak.scala.nn_problems.p04
 
+import org.ak.scala.nn_problems.GenUtil
 import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{Matchers, FunSuite}
@@ -21,7 +22,7 @@ class Problem04Test
   test("find length in normal list") {
     forAll(
       Gen.listOf(
-        Gen.chooseNum(Int.MinValue, Int.MaxValue)
+        GenUtil.chooseAllOfInt()
       )
     ) {
       list =>

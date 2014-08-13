@@ -2,6 +2,7 @@ package org.ak.scala.nn_problems.p01
 
 import java.util.NoSuchElementException
 
+import org.ak.scala.nn_problems.GenUtil
 import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
@@ -26,7 +27,7 @@ class Problem01Test
 
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(Int.MinValue, Int.MaxValue)
+        GenUtil.chooseAllOfInt()
       )
     ) {
       list =>
@@ -40,7 +41,7 @@ class Problem01Test
 
     forAll(
       Gen.nonEmptyListOf(
-        Gen.chooseNum(Int.MinValue, Int.MaxValue)
+        GenUtil.chooseAllOfInt()
       )
     ) {
       list =>
