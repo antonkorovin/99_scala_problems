@@ -13,8 +13,13 @@ class Problem07Test extends FunSuite
 with Matchers
 with GeneratorDrivenPropertyChecks {
 
+  val srcList = List(List(1, 1), 2, List(3, List(5, 8)))
+  val expList = List(1, 1, 2, 3, 5, 8)
+
+
   test("example test") {
-    Problem07.flatten(List(List(1, 1), 2, List(3, List(5, 8)))) shouldEqual List(1, 1, 2, 3, 5, 8)
+    Problem07.flatten(srcList) shouldEqual expList
+    Problem07.flattenThroughFlatMapMap(srcList) shouldEqual expList
   }
 
 
@@ -26,6 +31,7 @@ with GeneratorDrivenPropertyChecks {
     ) {
       list =>
         Problem07.flatten(list) shouldEqual list
+        Problem07.flattenThroughFlatMapMap(list) shouldEqual list
     }
   }
 }

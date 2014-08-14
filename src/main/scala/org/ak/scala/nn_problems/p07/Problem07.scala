@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p07
 
+import scala.annotation.tailrec
+
 /**
  * @author antonk
  * @since  8/13/14 - 12:44 PM
@@ -39,5 +41,14 @@ object Problem07 {
     }
 
     flattenRec(list, Nil).reverse
+  }
+
+
+
+  def flattenThroughFlatMapMap(list: List[Any]): List[Any] = {
+    list.flatMap {
+      case ms: List[_] => flattenThroughFlatMapMap(ms)
+      case e => List(e)
+    }
   }
 }
