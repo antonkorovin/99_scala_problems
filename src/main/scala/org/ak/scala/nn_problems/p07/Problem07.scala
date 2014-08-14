@@ -1,6 +1,7 @@
 package org.ak.scala.nn_problems.p07
 
 import scala.annotation.tailrec
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * @author antonk
@@ -50,7 +51,7 @@ object Problem07 {
   }
 
 
-  def flattenTailRecursive(list: List[Any]): List[Any] = {
+  def flattenPseudoTailRecursive(list: List[Any]): List[Any] = {
     @tailrec
     def flatList(
       rest: List[Any],
@@ -93,8 +94,28 @@ object Problem07 {
 
   def flattenThroughFlatMap(list: List[Any]): List[Any] = {
     list.flatMap {
-      case ms: List[_] => flattenThroughFlatMap(ms)
+      case subList: List[_] => flattenThroughFlatMap(subList)
       case e => List(e)
     }
+  }
+
+
+  def flattenIterative(list: List[Any]): List[Any] = {
+    var flattenList = new ArrayBuffer[Any]()
+
+    for (e <- list) {
+        e match {
+          case subList: List[_] =>
+            flattenList ++= flattenIterative(
+              subList
+            )
+
+          case singleElement =>
+            flattenList += singleElement
+        }
+      }
+
+
+    flattenList.toList
   }
 }

@@ -38,11 +38,28 @@ class Problem07Test
   )
 
 
-  test("example test") {
+  test("example test recursive") {
     Problem07.flatten(srcList) shouldEqual expList
-    Problem07.flattenThroughFlatMap(srcList) shouldEqual expList
-    Problem07.flattenTailRecursive(srcList) shouldEqual expList
   }
+
+
+
+  test("example test through flat map") {
+    Problem07.flattenThroughFlatMap(srcList) shouldEqual expList
+  }
+
+
+
+  test("example test pseudo tail recursive") {
+    Problem07.flattenPseudoTailRecursive(srcList) shouldEqual expList
+  }
+
+
+
+  test("example test iterative") {
+    Problem07.flattenIterative(srcList) shouldEqual expList
+  }
+
 
 
   test("flatten plain lists") {
@@ -54,7 +71,8 @@ class Problem07Test
       list =>
         Problem07.flatten(list) shouldEqual list
         Problem07.flattenThroughFlatMap(list) shouldEqual list
-        Problem07.flattenTailRecursive(list) shouldEqual list
+        Problem07.flattenPseudoTailRecursive(list) shouldEqual list
+        Problem07.flattenIterative(list) shouldEqual list
     }
   }
 }
