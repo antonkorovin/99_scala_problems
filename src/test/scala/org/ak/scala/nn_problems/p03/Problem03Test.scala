@@ -10,11 +10,21 @@ import org.scalatest.{FunSuite, Matchers}
  * @since  8/12/14 - 2:19 PM
  */
 class Problem03Test extends FunSuite
-with Matchers
-with GeneratorDrivenPropertyChecks {
+                            with Matchers
+                            with GeneratorDrivenPropertyChecks {
 
   test("example test") {
-    Problem03.nth(2, List(1, 1, 2, 3, 5, 8)) shouldEqual 2
+    Problem03.nth(
+      2,
+      List(
+        1,
+        1,
+        2,
+        3,
+        5,
+        8
+      )
+    ) shouldEqual 2
   }
 
 
@@ -25,9 +35,17 @@ with GeneratorDrivenPropertyChecks {
       )
     ) {
       list =>
-        forAll(Gen.chooseNum(0, list.size - 1)) {
+        forAll(
+          Gen.chooseNum(
+            0,
+            list.size - 1
+          )
+        ) {
           index =>
-            Problem03.nth(index, list) shouldEqual list(index)
+            Problem03.nth(
+              index,
+              list
+            ) shouldEqual list(index)
         }
     }
   }
@@ -35,7 +53,11 @@ with GeneratorDrivenPropertyChecks {
 
   test("find nth element in empty list") {
     forAll(
-      Gen.oneOf(List.empty, Nil, List())
+      Gen.oneOf(
+        List.empty,
+        Nil,
+        List()
+      )
     ) {
       anEmptyList => {
         forAll(
@@ -43,7 +65,10 @@ with GeneratorDrivenPropertyChecks {
         ) {
           index => {
             intercept[IndexOutOfBoundsException] {
-              Problem03.nth(index, anEmptyList)
+              Problem03.nth(
+                index,
+                anEmptyList
+              )
             }
           }
         }
@@ -69,7 +94,10 @@ with GeneratorDrivenPropertyChecks {
           index => {
 
             intercept[IndexOutOfBoundsException] {
-              Problem03.nth(index, list)
+              Problem03.nth(
+                index,
+                list
+              )
             }
 
           }

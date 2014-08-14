@@ -11,12 +11,21 @@ import org.scalatest.{FunSuite, Matchers}
  */
 class Problem02Test
   extends FunSuite
-  with Matchers
-  with GeneratorDrivenPropertyChecks {
+          with Matchers
+          with GeneratorDrivenPropertyChecks {
 
 
   test("example test") {
-    Problem02.penultimateRecursive(List(1, 1, 2, 3, 5, 8)) shouldEqual 5
+    Problem02.penultimateRecursive(
+      List(
+        1,
+        1,
+        2,
+        3,
+        5,
+        8
+      )
+    ) shouldEqual 5
   }
 
 

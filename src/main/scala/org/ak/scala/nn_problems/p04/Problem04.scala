@@ -14,7 +14,10 @@ object Problem04 {
 
   def length[T](list: List[T]) = {
     @tailrec
-    def lengthRec(count: Int, list: List[T]): Int = list match {
+    def lengthRec(
+      count: Int,
+      list: List[T]
+    ): Int = list match {
       case Nil =>
         count
 
@@ -26,6 +29,9 @@ object Problem04 {
     }
 
 
-    lengthRec(0, list)
+    lengthRec(
+      0,
+      list
+    )
   }
 }

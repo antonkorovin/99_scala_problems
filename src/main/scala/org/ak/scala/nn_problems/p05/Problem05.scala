@@ -15,7 +15,10 @@ object Problem05 {
 
   def reverse[T](list: List[T]) = {
     @tailrec
-    def reverseRec(rest: List[T], reversed: List[T]): List[T] = {
+    def reverseRec(
+      rest: List[T],
+      reversed: List[T]
+    ): List[T] = {
       rest match {
         case head :: tail =>
           reverseRec(

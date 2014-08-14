@@ -11,12 +11,22 @@ import org.scalatest.{FunSuite, Matchers}
  */
 class Problem06Test
   extends FunSuite
-  with Matchers
-  with GeneratorDrivenPropertyChecks {
+          with Matchers
+          with GeneratorDrivenPropertyChecks {
 
 
   test("example test") {
-    assert(Problem06.isPalindrome(List(1, 2, 3, 2, 1)))
+    assert(
+      Problem06.isPalindrome(
+        List(
+          1,
+          2,
+          3,
+          2,
+          1
+        )
+      )
+    )
   }
 
 

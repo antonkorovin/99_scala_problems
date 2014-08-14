@@ -13,12 +13,27 @@ import org.scalatest.{FunSuite, Matchers}
  */
 class Problem01Test
   extends FunSuite
-  with Matchers
-  with GeneratorDrivenPropertyChecks {
+          with Matchers
+          with GeneratorDrivenPropertyChecks {
+
+  val srcList = List(
+    1,
+    1,
+    2,
+    3,
+    5,
+    8
+  )
+
 
   test("example test") {
-    Problem01.recursiveLast(List(1, 1, 2, 3, 5, 8)) shouldEqual 8
-    Problem01.iterativeLast(List(1, 1, 2, 3, 5, 8)) shouldEqual 8
+
+    Problem01.recursiveLast(
+      srcList
+    ) shouldEqual 8
+    Problem01.iterativeLast(
+      srcList
+    ) shouldEqual 8
   }
 
 
@@ -55,7 +70,11 @@ class Problem01Test
     import org.ak.scala.nn_problems.p01.Problem01.recursiveLast
 
     forAll(
-      Gen.oneOf(List.empty, Nil, List())
+      Gen.oneOf(
+        List.empty,
+        Nil,
+        List()
+      )
     ) {
       anEmptyList =>
         intercept[NoSuchElementException] {
@@ -70,7 +89,11 @@ class Problem01Test
     import org.ak.scala.nn_problems.p01.Problem01.iterativeLast
 
     forAll(
-      Gen.oneOf(List.empty, Nil, List())
+      Gen.oneOf(
+        List.empty,
+        Nil,
+        List()
+      )
     ) {
       anEmptyList =>
         intercept[NoSuchElementException] {

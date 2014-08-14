@@ -15,7 +15,10 @@ object Problem03 {
   //  res0: Int = 2
 
   @tailrec
-  def nth[T](n: Int, list: List[T]): T = {
+  def nth[T](
+    n: Int,
+    list: List[T]
+  ): T = {
     if (n < 0) throw new IndexOutOfBoundsException
 
     list match {

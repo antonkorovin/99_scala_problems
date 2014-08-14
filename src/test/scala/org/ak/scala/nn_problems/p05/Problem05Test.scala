@@ -11,12 +11,28 @@ import org.scalatest.{FunSuite, Matchers}
  */
 class Problem05Test
   extends FunSuite
-  with Matchers
-  with GeneratorDrivenPropertyChecks {
+          with Matchers
+          with GeneratorDrivenPropertyChecks {
 
 
   test("example test") {
-    Problem05.reverse(List(1, 1, 2, 3, 5, 8)) shouldEqual List(8, 5, 3, 2, 1, 1)
+    Problem05.reverse(
+      List(
+        1,
+        1,
+        2,
+        3,
+        5,
+        8
+      )
+    ) shouldEqual List(
+      8,
+      5,
+      3,
+      2,
+      1,
+      1
+    )
   }
 
 

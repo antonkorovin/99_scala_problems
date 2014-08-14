@@ -3,7 +3,7 @@ package org.ak.scala.nn_problems.p04
 import org.ak.scala.nn_problems.GenUtil
 import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
 
 /**
  * @author antonk
@@ -11,11 +11,20 @@ import org.scalatest.{Matchers, FunSuite}
  */
 class Problem04Test
   extends FunSuite
-  with Matchers
-  with GeneratorDrivenPropertyChecks {
+          with Matchers
+          with GeneratorDrivenPropertyChecks {
 
   test("example test") {
-    Problem04.length(List(1, 1, 2, 3, 5, 8)) shouldEqual 6
+    Problem04.length(
+      List(
+        1,
+        1,
+        2,
+        3,
+        5,
+        8
+      )
+    ) shouldEqual 6
   }
 
 

@@ -7,5 +7,8 @@ import org.scalacheck.Gen
  * @since  8/13/14 - 11:52 AM
  */
 object GenUtil {
-  def chooseAllOfInt() = Gen.chooseNum(Int.MinValue, Int.MaxValue)
+  def chooseAllOfInt() = Gen.chooseNum(
+    Int.MinValue,
+    Int.MaxValue
+  )
 }
