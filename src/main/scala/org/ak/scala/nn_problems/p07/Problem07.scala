@@ -24,7 +24,7 @@ object Problem07 {
             case subList: List[_] =>
               flattenRec(
                 tail,
-                flattenRec(subList, Nil) ::: flattenList
+                flattenRec(subList, flattenList)
               )
 
             case singleElement: Any =>
