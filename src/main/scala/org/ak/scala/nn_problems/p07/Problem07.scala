@@ -24,7 +24,10 @@ object Problem07 {
             case subList: List[_] =>
               flattenRec(
                 tail,
-                flattenRec(subList, flattenList)
+                flattenRec(
+                  subList,
+                  flattenList
+                )
               )
 
             case singleElement: Any =>
@@ -40,14 +43,57 @@ object Problem07 {
       }
     }
 
-    flattenRec(list, Nil).reverse
+    flattenRec(
+      list,
+      Nil
+    ).reverse
   }
 
 
+  def flattenTailRecursive(list: List[Any]): List[Any] = {
+    @tailrec
+    def flatList(
+      rest: List[Any],
+      flattenList: List[Any]
+    ): List[Any] = {
+      rest match {
+        case head :: tail =>
+          flatList(
+            tail,
+            flatElement(head) ::: flattenList
+          )
 
-  def flattenThroughFlatMapMap(list: List[Any]): List[Any] = {
+
+        case Nil =>
+          flattenList
+      }
+    }
+
+
+    def flatElement(element: Any): List[Any] = {
+      element match {
+        case subList: List[_] =>
+          flatList(
+            subList,
+            Nil
+          )
+
+        case singleElement =>
+          List(singleElement)
+      }
+    }
+
+
+    flatList(
+      list,
+      Nil
+    ).reverse
+  }
+
+
+  def flattenThroughFlatMap(list: List[Any]): List[Any] = {
     list.flatMap {
-      case ms: List[_] => flattenThroughFlatMapMap(ms)
+      case ms: List[_] => flattenThroughFlatMap(ms)
       case e => List(e)
     }
   }
