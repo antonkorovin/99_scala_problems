@@ -101,21 +101,21 @@ object Problem07 {
 
 
   def flattenIterative(list: List[Any]): List[Any] = {
-    var flattenList = new ArrayBuffer[Any]()
+    var flattenList = Nil: List[Any]
 
     for (e <- list) {
         e match {
           case subList: List[_] =>
-            flattenList ++= flattenIterative(
+            flattenList = flattenIterative(
               subList
-            )
+            ).reverse ::: flattenList
 
           case singleElement =>
-            flattenList += singleElement
+            flattenList = singleElement :: flattenList
         }
       }
 
 
-    flattenList.toList
+    flattenList.reverse
   }
 }
