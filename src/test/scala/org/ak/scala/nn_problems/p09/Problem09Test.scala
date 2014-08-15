@@ -19,5 +19,6 @@ class Problem09Test
     import org.ak.scala.nn_problems.p09.Problem09._
 
     packTailRecursive(srcList) shouldEqual expList
+    packUsingTakeAndDropWhile(srcList) shouldEqual expList
   }
 }

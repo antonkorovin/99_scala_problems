@@ -57,4 +57,35 @@ object Problem09 {
 
     packRec(list, Nil, Nil).reverse
   }
+
+
+
+  def packUsingTakeAndDropWhile[T](list: List[T]) = {
+    @tailrec
+    def packRec(
+      rest: List[T],
+      elements: List[T],
+      packed: List[List[T]]
+    ): List[List[T]] = {
+      rest match {
+        case Nil =>
+          if (elements.isEmpty) packed
+          else                  elements :: packed
+
+        case head :: tail =>
+          packRec(
+            rest.dropWhile(_ == head),
+            rest.takeWhile(_ == head),
+            if (elements.isEmpty) packed else elements :: packed
+          )
+      }
+    }
+
+
+    packRec(
+      list,
+      Nil,
+      Nil
+    ).reverse
+  }
 }
