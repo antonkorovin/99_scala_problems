@@ -21,5 +21,7 @@ class Problem09Test
     packTailRecursive(srcList) shouldEqual expList
     packUsingTakeAndDropWhile(srcList) shouldEqual expList
     packUsingSpan(srcList) shouldEqual expList
+    packUsingFoldLeft(srcList) shouldEqual expList
+    packUsingFoldRight(srcList) shouldEqual expList
   }
 }

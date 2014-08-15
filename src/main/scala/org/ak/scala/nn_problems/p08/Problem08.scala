@@ -84,6 +84,7 @@ object Problem08 {
   }
 
 
+
   def compressUsingFoldRight[T](list: List[T]): List[T] = {
     list.foldRight(List[T]()) {
       (next, cmp) =>

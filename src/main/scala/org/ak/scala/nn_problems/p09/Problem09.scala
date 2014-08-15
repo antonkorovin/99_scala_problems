@@ -113,4 +113,34 @@ object Problem09 {
       Nil
     ).reverse
   }
+
+
+
+  def packUsingFoldLeft[T](list: List[T]) = {
+    list.foldLeft(List[List[T]]()) {
+      (cmp, next) =>
+        if (cmp.isEmpty) {
+          List(next) :: cmp
+        } else if (next == cmp.head.head) {
+          (next :: cmp.head) :: cmp.tail
+        } else {
+          List(next) :: cmp
+        }
+    }.reverse
+  }
+
+
+
+  def packUsingFoldRight[T](list: List[T]) = {
+    list.foldRight(List[List[T]]()) {
+      (next, cmp) =>
+        if (cmp.isEmpty) {
+          List(next) :: cmp
+        } else if (next == cmp.head.head) {
+          (next :: cmp.head) :: cmp.tail
+        } else {
+          List(next) :: cmp
+        }
+    }
+  }
 }
