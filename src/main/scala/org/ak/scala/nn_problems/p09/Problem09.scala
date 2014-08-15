@@ -64,19 +64,16 @@ object Problem09 {
     @tailrec
     def packRec(
       rest: List[T],
-      elements: List[T],
       packed: List[List[T]]
     ): List[List[T]] = {
       rest match {
         case Nil =>
-          if (elements.isEmpty) packed
-          else                  elements :: packed
+          packed
 
-        case head :: tail =>
+        case head :: _ =>
           packRec(
             rest.dropWhile(_ == head),
-            rest.takeWhile(_ == head),
-            if (elements.isEmpty) packed else elements :: packed
+            rest.takeWhile(_ == head) :: packed
           )
       }
     }
@@ -84,7 +81,6 @@ object Problem09 {
 
     packRec(
       list,
-      Nil,
       Nil
     ).reverse
   }
