@@ -1,6 +1,5 @@
 package org.ak.scala.nn_problems.p09
 
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
 
 /**
@@ -8,9 +7,7 @@ import org.scalatest.{FunSuite, Matchers}
  * @since  8/15/14 - 11:18 AM
  */
 class Problem09Test
-  extends FunSuite
-          with Matchers
-          with GeneratorDrivenPropertyChecks {
+  extends FunSuite with Matchers {
 
   test("example test") {
     val srcList = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
