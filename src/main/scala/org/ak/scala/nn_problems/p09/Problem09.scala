@@ -88,4 +88,33 @@ object Problem09 {
       Nil
     ).reverse
   }
+
+
+
+  def packUsingSpan[T](list: List[T]) = {
+    @tailrec
+    def packRec(
+      rest: List[T],
+      packed: List[List[T]]
+    ): List[List[T]] = {
+      rest match {
+        case Nil =>
+          packed
+
+        case head :: _ =>
+          val (repeatedElements, tail) = rest.span(_ == head)
+
+          packRec(
+            tail,
+            repeatedElements :: packed
+          )
+      }
+    }
+
+
+    packRec(
+      list,
+      Nil
+    ).reverse
+  }
 }
