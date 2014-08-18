@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p14
 
+import scala.annotation.tailrec
+
 /**
  * @author antonk
  * @since  8/18/14 - 11:19 AM
@@ -12,6 +14,7 @@ object Problem14 {
 
 
   def duplicate[T](list: List[T]) = {
+    @tailrec
     def duplicateRec(
       rest: List[T],
       duplicated: List[T]
