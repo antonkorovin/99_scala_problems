@@ -16,5 +16,7 @@ class Problem14Test
       val expList = List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
 
       duplicate(srcList) shouldEqual expList
+      duplicateUsingFoldLeft(srcList) shouldEqual expList
+      duplicateUsingFoldRight(srcList) shouldEqual expList
     }
 }

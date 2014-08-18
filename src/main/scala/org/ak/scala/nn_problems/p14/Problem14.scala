@@ -32,4 +32,21 @@ object Problem14 {
       Nil
     ).reverse
   }
+
+
+  def duplicateUsingFoldLeft[T](list: List[T]) = {
+    // Use 'reverse' before foldLeft is more effective than after
+    list.reverse.foldLeft(List[T]()) {
+      (duplicated, e) =>
+        e :: e :: duplicated
+    }
+  }
+
+
+  def duplicateUsingFoldRight[T](list: List[T]) = {
+    list.foldRight(List[T]()) {
+      (e, duplicated) =>
+        e :: e :: duplicated
+    }
+  }
 }
