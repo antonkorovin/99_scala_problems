@@ -38,4 +38,47 @@ object Problem15 {
       Nil
     ).reverse
   }
+
+
+  def duplicateNUsingFoldLeft[T](
+    n: Int,
+    list: List[T]
+  ) = {
+    // Use 'reverse' before foldLeft is more effective than after
+    list.reverse.foldLeft(List[T]()) {
+      (duplicated, e) =>
+        List.fill(n)(e) ::: duplicated
+    }
+  }
+
+
+  def duplicateNUsingFoldRight[T](
+    n: Int,
+    list: List[T]
+  ) = {
+    list.foldRight(List[T]()) {
+      (e, duplicated) =>
+        List.fill(n)(e) ::: duplicated
+    }
+  }
+
+
+  def duplicateNUsingMap[T](
+    n: Int,
+    list: List[T]
+  ) = {
+    list.map{
+      e => List.fill(n)(e)
+    }.flatten
+  }
+
+
+  def duplicateNUsingFlatMap[T](
+    n: Int,
+    list: List[T]
+  ) = {
+    list.flatMap{
+      e => List.fill(n)(e)
+    }
+  }
 }
