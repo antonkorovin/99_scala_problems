@@ -18,5 +18,7 @@ class Problem14Test
       duplicate(srcList) shouldEqual expList
       duplicateUsingFoldLeft(srcList) shouldEqual expList
       duplicateUsingFoldRight(srcList) shouldEqual expList
+      duplicateUsingMap(srcList) shouldEqual expList
+      duplicateUsingFlatMap(srcList) shouldEqual expList
     }
 }

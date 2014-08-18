@@ -49,4 +49,19 @@ object Problem14 {
         e :: e :: duplicated
     }
   }
+
+
+
+  def duplicateUsingMap[T](list: List[T]) = {
+    list.map{
+      e => List(e, e)
+    }.flatten
+  }
+
+
+  def duplicateUsingFlatMap[T](list: List[T]) = {
+    list.flatMap{
+      e => List(e, e)
+    }
+  }
 }
