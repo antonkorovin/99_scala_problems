@@ -19,13 +19,6 @@ class Problem18Test
   test("example test") {
     val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
 
-    slice(
-      3,
-      7,
-      srcList
-    ) shouldEqual List('d, 'e, 'f, 'g)
-
-
     check(
       srcList,
       3,
@@ -70,6 +63,13 @@ class Problem18Test
     until: Int
   ) {
     slice(
+      from,
+      until,
+      list
+    ) shouldEqual list.slice(from, until)
+
+
+    sliceUsingIfGuards(
       from,
       until,
       list

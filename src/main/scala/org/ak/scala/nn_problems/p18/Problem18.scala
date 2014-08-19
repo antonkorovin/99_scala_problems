@@ -58,6 +58,48 @@ object Problem18 {
 
 
 
+  def sliceUsingIfGuards[T](
+    fromIndex: Int,
+    untilIndex: Int,
+    list: List[T]
+  ) = {
+    @tailrec
+    def sliceRec(
+      rest: List[T],
+      leftToDrop: Int,
+      leftToTake: Int,
+      sliced: List[T]
+    ): List[T] = rest match {
+      case _ | Nil if leftToDrop == 0 && leftToTake == 0 =>
+        sliced.reverse
+
+      case head :: tail if leftToDrop == 0 =>
+        sliceRec(
+          tail,
+          leftToDrop,
+          leftToTake - 1,
+          head :: sliced
+        )
+
+
+      case _ :: tail =>
+        sliceRec(
+          tail,
+          leftToDrop - 1,
+          leftToTake,
+          sliced
+        )
+    }
+
+    sliceRec(
+      list,
+      fromIndex,
+      untilIndex - fromIndex,
+      Nil
+    )
+  }
+
+
   def sliceUsingDropAndTake[T](
     fromIndex: Int,
     untilIndex: Int,
