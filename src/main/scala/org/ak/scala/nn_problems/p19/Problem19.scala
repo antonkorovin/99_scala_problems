@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p19
 
+import scala.annotation.tailrec
+
 /**
  * @author antonk
  * @since  8/19/14 - 2:21 PM
@@ -18,6 +20,7 @@ object Problem19 {
     n: Int,
     list: List[T]
   ) = {
+    @tailrec
     def rotateRecLeft(
       current: Int,
       rest: List[T],
@@ -38,10 +41,18 @@ object Problem19 {
     }
 
 
-    rotateRecLeft(
-      n,
-      list,
-      Nil
-    )
+    if (n < 0) {
+      rotateRecLeft(
+        -n,
+        list.reverse,
+        Nil
+      ).reverse
+    } else {
+      rotateRecLeft(
+        n,
+        list,
+        Nil
+      )
+    }
   }
 }

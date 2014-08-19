@@ -1,11 +1,10 @@
 package org.ak.scala.nn_problems.p19
 
 import org.ak.scala.nn_problems.GenUtil
+import org.ak.scala.nn_problems.p19.Problem19._
 import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
-
-import Problem19._
 
 /**
  * @author antonk
@@ -30,21 +29,21 @@ class Problem19Test
 
 
 
-//    rotate(
-//      -2,
-//      List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
-//    ) shouldEqual List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+    rotate(
+      -2,
+      List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+    ) shouldEqual List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
   }
 
 
 
   test("various lists") {
-    forAll (
+    forAll(
       Gen.listOf(
         GenUtil.chooseAllOfInt()
       ),
       minSize(0),
-      maxSize(10),
+      maxSize(100),
       maxDiscarded(0),
       workers(Runtime.getRuntime.availableProcessors() + 1)
     ) {
@@ -52,6 +51,12 @@ class Problem19Test
 
         rotate(
           list.size,
+          list
+        ) shouldEqual list
+
+
+        rotate(
+          -list.size,
           list
         ) shouldEqual list
     }
