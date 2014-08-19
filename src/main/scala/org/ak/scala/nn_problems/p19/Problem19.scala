@@ -61,9 +61,11 @@ object Problem19 {
     n: Int,
     list: List[T]
   ): List[T] = {
-    if (list.nonEmpty)
-      if (n > 0) {
-        list.drop(n) ::: list.take(n)
+    if (list.nonEmpty) {
+      val realRotationCount = n % list.size
+
+      if (realRotationCount >= 0) {
+        list.drop(realRotationCount) ::: list.take(realRotationCount)
       } else {
         rotateUsingDropAndTake(
           // 'n' is negative
@@ -71,7 +73,31 @@ object Problem19 {
           list.reverse
         ).reverse
       }
+    }
     else {
+      list
+    }
+  }
+
+
+  def rotateUsingSplitAt[T](
+    n: Int,
+    list: List[T]
+  ): List[T] = {
+    if (list.nonEmpty) {
+      val realRotationCount = n % list.size
+
+      if (realRotationCount >= 0) {
+        val (prefix, suffix) = list.splitAt(realRotationCount)
+        prefix ::: suffix
+      } else {
+        rotateUsingDropAndTake(
+          // 'n' is negative
+          -n,
+          list.reverse
+        ).reverse
+      }
+    } else {
       list
     }
   }
