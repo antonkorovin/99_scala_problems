@@ -23,42 +23,23 @@ class Problem19Test
     val expNegList = List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
 
 
-    rotate(
+    check(
+      srcList,
       3,
-      srcList
-    ) shouldEqual expPosList
+      expPosList,
+      rotate,
+      rotateUsingDropAndTake
+    )
 
 
-    rotate(
+    check(
+      srcList,
       -2,
-      srcList
-    ) shouldEqual expNegList
-
-
-
-    rotateUsingDropAndTake(
-      3,
-      srcList
-    ) shouldEqual expPosList
-
-
-    rotateUsingDropAndTake(
-      -2,
-      srcList
-    ) shouldEqual expNegList
-
-
-
-    rotateUsingSplitAt(
-      3,
-      srcList
-    ) shouldEqual expPosList
-
-
-    rotateUsingSplitAt(
-      -2,
-      srcList
-    ) shouldEqual expNegList
+      expNegList,
+      rotate,
+      rotateUsingDropAndTake,
+      rotateUsingSplitAt
+    )
   }
 
 
@@ -75,42 +56,31 @@ class Problem19Test
     ) {
       list =>
 
-        rotate(
+        check(
+          list,
           list.size,
-          list
-        ) shouldEqual list
-
-
-        rotate(
-          -list.size,
-          list
-        ) shouldEqual list
-
-
-
-        rotateUsingDropAndTake(
-          list.size,
-          list
-        ) shouldEqual list
-
-
-        rotateUsingDropAndTake(
-          -list.size,
-          list
-        ) shouldEqual list
+          list,
+          rotate,
+          rotateUsingDropAndTake,
+          rotateUsingSplitAt
+        )
+    }
+  }
 
 
 
-        rotateUsingSplitAt(
-          list.size,
-          list
-        ) shouldEqual list
+  // TODO: Find out better way than using Any
+  type RotateFunction = (Int, List[Any]) => List[Any]
 
-
-        rotateUsingSplitAt(
-          -list.size,
-          list
-        ) shouldEqual list
+  private def check[T](
+    srcList: List[T],
+    n: Int,
+    expList: List[T],
+    functions: RotateFunction*
+  ) {
+    functions.foreach {
+      rotateFun =>
+        rotateFun(n, srcList) shouldEqual expList
     }
   }
 }
