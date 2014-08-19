@@ -55,4 +55,24 @@ object Problem19 {
       )
     }
   }
+
+
+  def rotateUsingDropAndTake[T](
+    n: Int,
+    list: List[T]
+  ): List[T] = {
+    if (list.nonEmpty)
+      if (n > 0) {
+        list.drop(n) ::: list.take(n)
+      } else {
+        rotateUsingDropAndTake(
+          // 'n' is negative
+          -n,
+          list.reverse
+        ).reverse
+      }
+    else {
+      list
+    }
+  }
 }

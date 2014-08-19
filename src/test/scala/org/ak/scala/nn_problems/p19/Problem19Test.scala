@@ -20,6 +20,7 @@ class Problem19Test
     val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
 
     val expPosList = List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
+    val expNegList = List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
 
 
     rotate(
@@ -28,11 +29,23 @@ class Problem19Test
     ) shouldEqual expPosList
 
 
-
     rotate(
       -2,
-      List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
-    ) shouldEqual List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+      srcList
+    ) shouldEqual expNegList
+
+
+
+    rotateUsingDropAndTake(
+      3,
+      srcList
+    ) shouldEqual expPosList
+
+
+    rotateUsingDropAndTake(
+      -2,
+      srcList
+    ) shouldEqual expNegList
   }
 
 
@@ -56,6 +69,19 @@ class Problem19Test
 
 
         rotate(
+          -list.size,
+          list
+        ) shouldEqual list
+
+
+
+        rotateUsingDropAndTake(
+          list.size,
+          list
+        ) shouldEqual list
+
+
+        rotateUsingDropAndTake(
           -list.size,
           list
         ) shouldEqual list
