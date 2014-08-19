@@ -46,6 +46,19 @@ class Problem19Test
       -2,
       srcList
     ) shouldEqual expNegList
+
+
+
+    rotateUsingSplitAt(
+      3,
+      srcList
+    ) shouldEqual expPosList
+
+
+    rotateUsingSplitAt(
+      -2,
+      srcList
+    ) shouldEqual expNegList
   }
 
 
@@ -82,6 +95,19 @@ class Problem19Test
 
 
         rotateUsingDropAndTake(
+          -list.size,
+          list
+        ) shouldEqual list
+
+
+
+        rotateUsingSplitAt(
+          list.size,
+          list
+        ) shouldEqual list
+
+
+        rotateUsingSplitAt(
           -list.size,
           list
         ) shouldEqual list

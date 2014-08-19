@@ -89,7 +89,7 @@ object Problem19 {
 
       if (realRotationCount >= 0) {
         val (prefix, suffix) = list.splitAt(realRotationCount)
-        prefix ::: suffix
+        suffix ::: prefix
       } else {
         rotateUsingDropAndTake(
           // 'n' is negative
