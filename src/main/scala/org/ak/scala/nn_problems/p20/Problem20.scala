@@ -47,4 +47,35 @@ object Problem20 {
       Nil
     )
   }
+
+
+
+  def removeAtUsingSplitAt[T](
+    n: Int,
+    list: List[T]
+  ) = {
+    if (n < 0 || n > list.size) {
+      throw new NoSuchElementException()
+    }
+
+    val (prefix, suffix) = list.splitAt(n)
+
+    (prefix ::: suffix.tail, suffix.head)
+  }
+
+
+
+  def removeAtUsingTakeAndDrop[T](
+    n: Int,
+    list: List[T]
+  ) = {
+    if (n < 0 || n > list.size) {
+      throw new NoSuchElementException()
+    }
+
+    val prefix = list.take(n)
+    val suffix = list.drop(n)
+
+    (prefix ::: suffix.tail, suffix.head)
+  }
 }

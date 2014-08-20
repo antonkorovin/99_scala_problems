@@ -3,7 +3,7 @@ package org.ak.scala.nn_problems.p20
 import java.util.NoSuchElementException
 
 import org.ak.scala.nn_problems.GenUtil
-import org.ak.scala.nn_problems.p20.Problem20.removeAt
+import org.ak.scala.nn_problems.p20.Problem20._
 import org.scalacheck.Gen
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
@@ -24,6 +24,18 @@ class Problem20Test
 
 
     removeAt(
+      1,
+      srcList
+    ) shouldEqual expList
+
+
+    removeAtUsingSplitAt(
+      1,
+      srcList
+    ) shouldEqual expList
+
+
+    removeAtUsingTakeAndDrop(
       1,
       srcList
     ) shouldEqual expList
@@ -50,6 +62,20 @@ class Problem20Test
                 list
               )
             }
+
+            intercept[NoSuchElementException] {
+              removeAtUsingSplitAt(
+                n,
+                list
+              )
+            }
+
+            intercept[NoSuchElementException] {
+              removeAtUsingTakeAndDrop(
+                n,
+                list
+              )
+            }
         }
 
 
@@ -57,6 +83,21 @@ class Problem20Test
           n =>
             intercept[NoSuchElementException] {
               removeAt(
+                n,
+                list
+              )
+            }
+
+            intercept[NoSuchElementException] {
+              removeAtUsingSplitAt(
+                n,
+                list
+              )
+            }
+
+
+            intercept[NoSuchElementException] {
+              removeAtUsingTakeAndDrop(
                 n,
                 list
               )
@@ -80,13 +121,37 @@ class Problem20Test
         removeAt(
           0,
           list
-        ) shouldEqual (list.tail, list.head)
+        ) shouldEqual(list.tail, list.head)
 
 
         removeAt(
           list.size - 1,
           list
-        ) shouldEqual (list.init, list.last)
+        ) shouldEqual(list.init, list.last)
+
+
+        removeAtUsingSplitAt(
+          0,
+          list
+        ) shouldEqual(list.tail, list.head)
+
+
+        removeAtUsingSplitAt(
+          list.size - 1,
+          list
+        ) shouldEqual(list.init, list.last)
+
+
+        removeAtUsingTakeAndDrop(
+          0,
+          list
+        ) shouldEqual(list.tail, list.head)
+
+
+        removeAtUsingTakeAndDrop(
+          list.size - 1,
+          list
+        ) shouldEqual(list.init, list.last)
     }
   }
 }
