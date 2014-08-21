@@ -20,9 +20,19 @@ class Problem23Test
       srcList
     )
 
-
     selected should have size 3
-    srcList.intersect(selected) shouldEqual srcList
-    selected.intersect(srcList) shouldEqual selected
+    srcList.intersect(selected) should have size 3
+    srcList.intersect(selected) should contain theSameElementsAs selected
+    selected.intersect(srcList) should contain theSameElementsAs selected
+
+    val permuted = randomSelect(
+      srcList.size,
+      srcList
+    )
+
+    permuted should have size srcList.size
+    srcList.intersect(permuted) should have size srcList.size
+    srcList.intersect(permuted) should contain theSameElementsAs permuted
+    permuted.intersect(srcList) should contain theSameElementsAs permuted
   }
 }

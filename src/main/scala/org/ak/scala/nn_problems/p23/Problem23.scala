@@ -29,7 +29,7 @@ object Problem23 {
     ): List[T] = {
       if (current != n) {
         val (newRest, removed) = Problem20.removeAt(
-           Random.nextInt(selected.size),
+           Random.nextInt(rest.size),
           rest
         )
 

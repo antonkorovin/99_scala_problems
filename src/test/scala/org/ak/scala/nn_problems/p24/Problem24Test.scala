@@ -26,12 +26,11 @@ class Problem24Test
 
   test("various lists") {
     forAll (
-      Gen.chooseNum(0, 1000),
-      minSize(10)
+      Gen.chooseNum(1, 1000)
     ) {
       n =>
         forAll (
-          GenUtil.chooseAllOfInt()
+          Gen.chooseNum(1, Int.MaxValue)
         ) {
           maxValue =>
             val list = lotto(n, maxValue)

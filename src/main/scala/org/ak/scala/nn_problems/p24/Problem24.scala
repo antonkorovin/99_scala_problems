@@ -23,9 +23,9 @@ object Problem24 {
       current: Int,
       generated: List[Int]
     ): List[Int] = {
-      if (current != n)
+      if (current != 0)
         lottoRec(
-          n - 1,
+          current - 1,
           Random.nextInt(maxValue) :: generated
         )
       else
