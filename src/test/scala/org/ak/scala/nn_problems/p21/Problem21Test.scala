@@ -30,6 +30,30 @@ class Problem21Test
 
 
   test("various lists") {
+    def checkFirstAndLast[T](
+      element: T,
+      srcList: List[T],
+      functions:  ((Any, Int, List[Any]) => List[Any]) *
+    ) {
+      functions.foreach{
+        f =>
+          f(
+            element,
+            0,
+            srcList
+          ) shouldEqual (element +: srcList)
+
+
+          f(
+            element,
+            srcList.size,
+            srcList
+          ) shouldEqual (srcList :+ element)
+      }
+    }
+
+
+
     forAll(
       Gen.listOf(
         GenUtil.chooseAllOfInt()
@@ -41,18 +65,12 @@ class Problem21Test
     ) {
       list =>
         val element = Random.nextInt(100)
-        insertAt(
-          element,
-          0,
-          list
-        ) shouldEqual (element +: list)
 
-
-        insertAt(
+        checkFirstAndLast(
           element,
-          list.size,
-          list
-        ) shouldEqual (list :+ element)
+          list,
+          insertAt
+        )
     }
   }
 }
