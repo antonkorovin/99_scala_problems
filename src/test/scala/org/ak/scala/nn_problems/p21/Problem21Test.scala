@@ -26,6 +26,19 @@ class Problem21Test
       1,
       srcList
     ) shouldEqual expList
+
+    insertAtUsingTakeAndDrop(
+      'new,
+      1,
+      srcList
+    ) shouldEqual expList
+
+
+    insertAtUsingSplitAt(
+      'new,
+      1,
+      srcList
+    ) shouldEqual expList
   }
 
 
@@ -69,7 +82,9 @@ class Problem21Test
         checkFirstAndLast(
           element,
           list,
-          insertAt
+          insertAt,
+          insertAtUsingTakeAndDrop,
+          insertAtUsingSplitAt
         )
     }
   }

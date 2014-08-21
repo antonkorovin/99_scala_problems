@@ -42,4 +42,25 @@ object Problem21 {
       Nil
     )
   }
+
+
+
+  def insertAtUsingTakeAndDrop[T](
+    element: T,
+    n: Int,
+    list: List[T]
+  ) = {
+    list.take(n) ::: element :: list.drop(n)
+  }
+
+
+
+  def insertAtUsingSplitAt[T](
+    element: T,
+    n: Int,
+    list: List[T]
+  ) = {
+    val (prefix, suffix) = list.splitAt(n)
+    prefix ::: element :: suffix
+  }
 }
