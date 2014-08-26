@@ -20,8 +20,30 @@ object Problem26 {
   def combinations[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[List[T]] = {
 
+    require(n >= 0, s"n($n) should be greater than 0")
+    require(list.size >= n, s"${list.size} should be greater or equal to $n")
+
+
+    if (n == 1) {
+      list.map(List(_))
+    } else if (n == list.size) {
+      List(list)
+    } else {
+      var rest = list
+      var combined = Nil: List[List[T]]
+
+      while (rest.size >= n) {
+
+        combined = combined ::: combinations(n - 1, rest.tail).map(rest.head :: _)
+
+        rest = rest.tail
+      }
+
+
+      combined
+    }
   }
 
 
@@ -29,7 +51,7 @@ object Problem26 {
     n: Int,
     k: Int
   ) = {
-    require(n >= k)
+    require(n >= k, s"n($n) should be greater or equal to k($k)")
 
     @tailrec
     def fct(n: Int, p: Long = 1): Long = {
