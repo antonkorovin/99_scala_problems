@@ -47,6 +47,33 @@ object Problem26 {
   }
 
 
+  def combinationsFunctional[T](
+    n: Int,
+    list: List[T]
+  ): List[List[T]] = {
+
+    def combine(rest: List[T])(
+      combinator: (List[T]) => List[List[T]]
+    ): List[List[T]] =
+      rest match {
+        case Nil =>
+          Nil
+
+        case _ :: tail =>
+          combinator(rest) ::: combine(tail)(combinator)
+      }
+
+
+
+    if (n == 0) List(Nil)
+    else combine(list) { sublist =>
+      combinationsFunctional(n - 1, sublist.tail) map {
+        sublist.head :: _
+      }
+    }
+  }
+
+
   def ncr(
     n: Int,
     k: Int

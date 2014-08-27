@@ -52,48 +52,40 @@ class Problem26Test
             val elements = (minValue to n).toList
             val expSize = ncr(n, k)
 
-            combinations(
-              k,
-              elements
-            ) should have size expSize
+
+            for (fun <- combinationFunctions[Int]) {
+              fun(
+                k,
+                elements
+              ) should have size expSize
+            }
         }
     }
   }
 
 
   test("combinations content test") {
-    val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g)
+
+    val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
     val groupSize = 5
 
     val expectedSize = ncr(srcList.size, groupSize)
 
-    println("Group: " + srcList.size + " by " + groupSize)
-    println("Expected: " + expectedSize)
+    for (fun <- combinationFunctions[Symbol]) {
+      val result = fun(groupSize, srcList)
+      result should not be empty
+      result should have size expectedSize
 
 
-
-    val result = combinations(groupSize, srcList)
-    result should not be empty
-    result should have size expectedSize
-
-
-
-    val delimiter = "-" * (result.head.size * 2 + 3)
-    println("Result: " + result.size)
-    println(delimiter)
-
-    result.zipWithIndex.foreach {
-      c =>
-        println("#" + c._2 + " " + c._1.mkString)
-    }
-
-    println(delimiter)
-
-
-
-    result.foreach {
-      r =>
-        result.count(_ == r) shouldEqual 1
+      result.foreach {
+        r =>
+          result.count(_ == r) shouldEqual 1
+      }
     }
   }
+
+
+
+  private def combinationFunctions[T] = List(combinations[T] _, combinationsFunctional[T] _)
+
 }
