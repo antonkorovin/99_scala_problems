@@ -74,6 +74,41 @@ object Problem26 {
   }
 
 
+  def combinationsRec[T](
+    n: Int,
+    list: List[T]
+  ): List[List[T]] = {
+    val listSize = list.size
+
+    require(n >= 0, s"n($n) should be greater than 0")
+    require(listSize >= n, s"$listSize should be greater or equal to $n")
+
+    @tailrec
+    def combineSublist(
+      rest: List[T],
+      leftToCombine: Int,
+      combined: List[List[T]]
+    ): List[List[T]] = {
+      if (leftToCombine >= 0) {
+        combineSublist(
+          rest.tail,
+          leftToCombine - 1,
+          combined ::: combinationsRec(n - 1, rest.tail).map(rest.head :: _)
+        )
+      } else {
+        combined
+      }
+    }
+
+
+    if (n == 1) {
+      list.map(List(_))
+    } else {
+      combineSublist(list, listSize - n, Nil)
+    }
+  }
+
+
   def ncr(
     n: Int,
     k: Int
