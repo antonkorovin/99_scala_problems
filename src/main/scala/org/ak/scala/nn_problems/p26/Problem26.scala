@@ -78,11 +78,6 @@ object Problem26 {
     n: Int,
     list: List[T]
   ): List[List[T]] = {
-    val listSize = list.size
-
-    require(n >= 0, s"n($n) should be greater than 0")
-    require(listSize >= n, s"$listSize should be greater or equal to $n")
-
     @tailrec
     def combineSublist(
       rest: List[T],
@@ -104,7 +99,7 @@ object Problem26 {
     if (n == 1) {
       list.map(List(_))
     } else {
-      combineSublist(list, listSize - n, Nil)
+      combineSublist(list, list.size - n, Nil)
     }
   }
 
