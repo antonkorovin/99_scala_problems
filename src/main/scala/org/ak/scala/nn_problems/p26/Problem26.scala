@@ -36,7 +36,10 @@ object Problem26 {
 
       while (rest.size >= n) {
 
-        combined = combined ::: combinations(n - 1, rest.tail).map(rest.head :: _)
+        combined = combined ::: combinations(
+          n - 1,
+          rest.tail
+        ).map(rest.head :: _)
 
         rest = rest.tail
       }
@@ -66,10 +69,12 @@ object Problem26 {
 
 
     if (n == 0) List(Nil)
-    else combine(list) { sublist =>
-      combinationsFunctional(n - 1, sublist.tail) map {
-        sublist.head :: _
-      }
+    else combine(list) {
+      sublist =>
+        combinationsFunctional(
+          n - 1,
+          sublist.tail
+        ).map(sublist.head :: _)
     }
   }
 
@@ -84,15 +89,20 @@ object Problem26 {
       leftToCombine: Int,
       combined: List[List[T]]
     ): List[List[T]] = {
+
       if (leftToCombine >= 0) {
         combineSublist(
           rest.tail,
           leftToCombine - 1,
-          combined ::: combinationsRec(n - 1, rest.tail).map(rest.head :: _)
+          combined ::: combinationsRec(
+            n - 1,
+            rest.tail
+          ).map(rest.head :: _)
         )
       } else {
         combined
       }
+
     }
 
 
