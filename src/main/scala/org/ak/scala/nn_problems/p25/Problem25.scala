@@ -14,6 +14,10 @@ object Problem25 {
   //    scala> randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
   //  res0: List[Symbol] = List('b, 'a, 'd, 'c, 'e, 'f)
 
+  // Efficient purely functional algorithms for shuffling are a lot harder.
+  // One is described in http://okmij.org/ftp/Haskell/perfect-shuffle.txt
+  // using Haskell. Implementing it in Scala is left as an exercise for the reader.
+  // TODO Implement it here
 
   def randomPermute[T](list: List[T]) = {
     Problem23.randomSelect(
