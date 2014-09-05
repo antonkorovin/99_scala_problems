@@ -2,6 +2,8 @@ package org.ak.scala.nn_problems.p25
 
 import org.ak.scala.nn_problems.p23.Problem23
 
+import scala.util.Random
+
 /**
  * @author antonk
  * @since  8/21/14 - 4:35 PM
@@ -24,5 +26,12 @@ object Problem25 {
       list.size,
       list
     )
+  }
+
+
+  def randomPermuteUsingSort[T](list: List[T]) = {
+    list.zip(
+      Stream.continually(Random.nextInt())
+    ).sortWith(_._2 < _._2).unzip._1
   }
 }
