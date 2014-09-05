@@ -31,6 +31,29 @@ class Problem25Test
 
 
 
+  test("test various lists") {
+    forAll(
+      Gen.listOf(
+        Gen.alphaChar
+      ),
+      minSize(0),
+      maxSize(100),
+      maxDiscarded(0),
+      workers(Runtime.getRuntime.availableProcessors() + 1)
+    ) {
+
+      list =>
+
+        methodsUnderTest.foreach {
+          permuteMethod: PermuteMethod =>
+            checkLists(
+              list,
+              permuteMethod(list)
+            )
+        }
+
+    }
+  }
 
 
   private def checkLists[T](
