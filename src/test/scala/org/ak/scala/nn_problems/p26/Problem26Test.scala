@@ -89,7 +89,8 @@ class Problem26Test
   private def combinationFunctions[T] = List(
     combinations[T] _,
     combinationsFunctional[T] _,
-    combinationsRec[T] _
+    combinationsRec[T] _,
+    combinationsBuiltin[T] _
   )
 
 }

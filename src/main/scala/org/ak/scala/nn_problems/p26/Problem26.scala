@@ -114,6 +114,13 @@ object Problem26 {
   }
 
 
+  def combinationsBuiltin[T](
+    n: Int,
+    list: List[T]
+  ) = {
+    list.combinations(n).toList
+  }
+
   def ncr(
     n: Int,
     k: Int
