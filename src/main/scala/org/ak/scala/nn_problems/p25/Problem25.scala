@@ -34,4 +34,17 @@ object Problem25 {
       Stream.continually(Random.nextInt())
     ).sortWith(_._2 < _._2).map(_._1)
   }
+  sealed trait BinaryTree[+T]
+
+  case class Node[T](
+    value: T,
+    left: BinaryTree[T],
+    right: BinaryTree[T]
+  ) extends BinaryTree[T]
+
+
+  case class Leaf[T](value: T) extends BinaryTree[T]
+
+
+  case object EmptyLeaf extends BinaryTree[Nothing]
 }
