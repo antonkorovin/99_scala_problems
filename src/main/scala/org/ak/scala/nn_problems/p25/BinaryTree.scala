@@ -7,6 +7,7 @@ package org.ak.scala.nn_problems.p25
 
 sealed trait BinaryTree[+T] {
   def empty: Boolean
+  def size: Int
 }
 
 case class Node[T](
@@ -15,13 +16,17 @@ case class Node[T](
   right: BinaryTree[T]
 ) extends BinaryTree[T] {
   override def empty = false
+  override def size = 1 + left.size + right.size
 }
 
 
 case class Leaf[T](value: T) extends BinaryTree[T] {
   override def empty = false
+  override def size = 1
 }
 
 case object EmptyLeaf extends BinaryTree[Nothing] {
   override def empty = true
+
+  override def size = 0
 }

@@ -21,4 +21,15 @@ class BinaryTreeTest
     Node(1, EmptyLeaf, Leaf(2)).empty shouldBe false
     Node(1, Leaf(2), Leaf(3)).empty shouldBe false
   }
+
+
+  test("tree size") {
+    EmptyLeaf.size shouldBe 0
+    Leaf(1).size shouldBe 1
+
+    Node(1, EmptyLeaf, EmptyLeaf).size shouldBe 1
+    Node(1, Leaf(2), EmptyLeaf).size shouldBe 2
+    Node(1, EmptyLeaf, Leaf(2)).size shouldBe 2
+    Node(1, Leaf(2), Leaf(3)).size shouldBe 3
+  }
 }
