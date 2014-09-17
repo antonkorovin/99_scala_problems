@@ -1,7 +1,7 @@
 package org.ak.scala.nn_problems.p25
 
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
 
 /**
  * @author antonk
@@ -31,5 +31,23 @@ class BinaryTreeTest
     Node(1, Leaf(2), EmptyLeaf).size shouldBe 2
     Node(1, EmptyLeaf, Leaf(2)).size shouldBe 2
     Node(1, Leaf(2), Leaf(3)).size shouldBe 3
+
+    val n1 = Node(1, Leaf(2), Leaf(3))
+
+    Node(0, n1, n1).size shouldBe 7
+
+    Node(
+      0,
+      Node(
+        42,
+        n1,
+        n1
+      ),
+      Node(
+        37,
+        n1,
+        n1
+      )
+    ).size shouldBe 15
   }
 }
