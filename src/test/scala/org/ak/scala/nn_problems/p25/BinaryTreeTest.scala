@@ -50,4 +50,82 @@ class BinaryTreeTest
       )
     ).size shouldBe 15
   }
+
+
+  test("full tree") {
+    val n1 = Node(1, Leaf(2), Leaf(3))
+    Node(
+      0,
+      Node(
+        42,
+        n1,
+        n1
+      ),
+      Node(
+        37,
+        n1,
+        n1
+      )
+    ).full shouldBe true
+
+
+    Node(
+      0,
+      Node(
+        42,
+        n1,
+        n1
+      ),
+      Node(
+        37,
+        n1,
+        EmptyLeaf
+      )
+    ).full shouldBe false
+
+
+    Node(
+      0,
+      Node(
+        42,
+        n1,
+        n1
+      ),
+      Node(
+        37,
+        EmptyLeaf,
+        n1
+      )
+    ).full shouldBe false
+
+
+    Node(
+      0,
+      Node(
+        42,
+        EmptyLeaf,
+        n1
+      ),
+      Node(
+        37,
+        n1,
+        n1
+      )
+    ).full shouldBe false
+
+
+    Node(
+      0,
+      Node(
+        42,
+        n1,
+        EmptyLeaf
+      ),
+      Node(
+        37,
+        n1,
+        n1
+      )
+    ).full shouldBe false
+  }
 }
