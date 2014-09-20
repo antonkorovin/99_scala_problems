@@ -16,10 +16,10 @@ class BinaryTreeTest
     EmptyLeaf.empty shouldBe true
     Leaf(1).empty shouldBe false
 
-    Node(1, EmptyLeaf, EmptyLeaf).empty shouldBe false
-    Node(1, Leaf(2), EmptyLeaf).empty shouldBe false
-    Node(1, EmptyLeaf, Leaf(2)).empty shouldBe false
-    Node(1, Leaf(2), Leaf(3)).empty shouldBe false
+    1.node(EmptyLeaf, EmptyLeaf).empty shouldBe false
+    1.node(2, EmptyLeaf).empty shouldBe false
+    1.node(EmptyLeaf, 2).empty shouldBe false
+    1.node(2, 3).empty shouldBe false
   }
 
 
@@ -27,24 +27,21 @@ class BinaryTreeTest
     EmptyLeaf.size shouldBe 0
     Leaf(1).size shouldBe 1
 
-    Node(1, EmptyLeaf, EmptyLeaf).size shouldBe 1
-    Node(1, Leaf(2), EmptyLeaf).size shouldBe 2
-    Node(1, EmptyLeaf, Leaf(2)).size shouldBe 2
-    Node(1, Leaf(2), Leaf(3)).size shouldBe 3
+    1.node(EmptyLeaf, EmptyLeaf).size shouldBe 1
+    1.node(2, EmptyLeaf).size shouldBe 2
+    1.node(EmptyLeaf, 2).size shouldBe 2
+    1.node(2, 3).size shouldBe 3
 
-    val n1 = Node(1, Leaf(2), Leaf(3))
+    val n1 = 1.node(2.leaf, 3.leaf)
 
-    Node(0, n1, n1).size shouldBe 7
+    0.node(n1, n1).size shouldBe 7
 
-    Node(
-      0,
-      Node(
-        42,
+    0.node(
+      42.node(
         n1,
         n1
       ),
-      Node(
-        37,
+      37.node(
         n1,
         n1
       )
@@ -53,76 +50,63 @@ class BinaryTreeTest
 
 
   test("full tree") {
-    val n1 = Node(1, Leaf(2), Leaf(3))
-    Node(
-      0,
-      Node(
-        42,
+
+    val n1 = 1.node(2.leaf, 3.leaf)
+
+    0.node(
+      42.node(
         n1,
         n1
       ),
-      Node(
-        37,
+      37.node(
         n1,
         n1
       )
     ).full shouldBe true
 
 
-    Node(
-      0,
-      Node(
-        42,
+    0.node(
+      42.node(
         n1,
         n1
       ),
-      Node(
-        37,
+      37.node(
         n1,
         EmptyLeaf
       )
     ).full shouldBe false
 
 
-    Node(
-      0,
-      Node(
-        42,
+    0.node(
+      42.node(
         n1,
         n1
       ),
-      Node(
-        37,
+      37.node(
         EmptyLeaf,
         n1
       )
     ).full shouldBe false
 
 
-    Node(
-      0,
-      Node(
-        42,
-        EmptyLeaf,
-        n1
-      ),
-      Node(
-        37,
-        n1,
-        n1
-      )
-    ).full shouldBe false
-
-
-    Node(
-      0,
-      Node(
-        42,
+    0.node(
+      42.node(
         n1,
         EmptyLeaf
       ),
-      Node(
-        37,
+      37.node(
+        n1,
+        n1
+      )
+    ).full shouldBe false
+
+
+    0.node(
+      42.node(
+        EmptyLeaf,
+        n1
+      ),
+      37.node(
         n1,
         n1
       )
