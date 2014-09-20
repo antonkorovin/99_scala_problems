@@ -9,8 +9,8 @@ import scala.language.implicitConversions
 package object p25 {
   implicit def toLeafConverter[T](v: T) = Leaf(v)
 
-  implicit class BinaryTreeCreator[T](v: T) {
-    def node(left: BinaryTree[T], right: BinaryTree[T]) = Node(v, left, right)
-    def leaf = Leaf(v)
+  implicit class BinaryTreeCreator[+T](v: T) {
+    def node[VT >: T](left: BinaryTree[VT], right: BinaryTree[VT]) = Node(v, left, right)
+    def leaf[VT >: T] = Leaf[VT](v)
   }
 }
