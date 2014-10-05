@@ -112,4 +112,32 @@ class BinaryTreeTest
       )
     ).full shouldBe false
   }
+
+
+  test("add value to empty leaf") {
+    EmptyLeaf.add(1) shouldEqual 1.leaf
+  }
+
+
+  test("add value to leaf") {
+    1.leaf.add(2) shouldEqual 1.node(2, EmptyLeaf)
+  }
+
+
+  test("add value to node with leafs") {
+    1.node(2, 3).add(4) shouldEqual 1.node(2.node(4, EmptyLeaf), 3)
+  }
+
+
+  test("add value to node with right leaf and left node") {
+    pending
+
+    1.node(
+      2.node(
+        4,
+        EmptyLeaf
+      ),
+      3
+    ).add(5) shouldEqual 1.node(2.node(4, 5), 3)
+  }
 }
