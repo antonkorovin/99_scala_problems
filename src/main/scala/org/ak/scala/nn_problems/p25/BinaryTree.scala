@@ -5,6 +5,15 @@ package org.ak.scala.nn_problems.p25
  * @since  09/17/14 - 11:32 PM
  */
 
+object BinaryTree {
+  def apply[T](values: T*) = {
+    values.foldLeft(EmptyLeaf: BinaryTree[T]) {
+      (tree, e) =>
+        tree.add(e)
+    }
+  }
+}
+
 sealed trait BinaryTree[+T] {
   def empty: Boolean
 
