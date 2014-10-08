@@ -44,6 +44,10 @@ class Problem25Test
 
       list =>
 
+  test("perfect permute") {
+    val list = (1 to 9).toList
+    val permuted = perfectRandomPermute(list)
+
         methodsUnderTest.foreach {
           permuteMethod: PermuteMethod =>
             checkLists(
@@ -52,6 +56,11 @@ class Problem25Test
             )
         }
 
+    pendingUntilFixed {
+      checkLists(
+        permuted,
+        list
+      )
     }
   }
 
