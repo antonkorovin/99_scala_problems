@@ -2,6 +2,7 @@ package org.ak.scala.nn_problems.p25
 
 import org.ak.scala.nn_problems.p23.Problem23
 
+import scala.annotation.tailrec
 import scala.util.Random
 
 /**
@@ -36,6 +37,10 @@ object Problem25 {
   }
 
 
+  def perfectRandomPermute[T](list: List[T]) = {
+    // TODO Implement
+    list
+  }
 
 
 }
