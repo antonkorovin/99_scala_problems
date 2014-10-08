@@ -33,28 +33,35 @@ class Problem25Test
 
   test("test various lists") {
     forAll(
-      Gen.listOf(
-        Gen.alphaChar
-      ),
-      minSize(0),
-      maxSize(100),
-      maxDiscarded(0),
-      workers(Runtime.getRuntime.availableProcessors() + 1)
+      Gen.chooseNum(5, 100).filter(_ > 5)
     ) {
+      size =>
+        forAll(
+          Gen.listOfN(
+            size,
+            Gen.alphaChar
+          ),
+          workers(Runtime.getRuntime.availableProcessors() + 1)
+        ) {
 
-      list =>
+          list =>
+
+            methodsUnderTest.foreach {
+              permuteMethod: PermuteMethod =>
+                checkLists(
+                  list,
+                  permuteMethod(list)
+                )
+            }
+        }
+    }
+  }
+
 
   test("perfect permute") {
     val list = (1 to 9).toList
     val permuted = perfectRandomPermute(list)
 
-        methodsUnderTest.foreach {
-          permuteMethod: PermuteMethod =>
-            checkLists(
-              list,
-              permuteMethod(list)
-            )
-        }
 
     pendingUntilFixed {
       checkLists(
@@ -70,7 +77,7 @@ class Problem25Test
     actual: List[T]
   ) {
     actual should have size expected.size
-    actual should not be equal(expected)
+    actual should not contain theSameElementsInOrderAs(expected)
 
     actual.toSet shouldEqual expected.toSet
   }
