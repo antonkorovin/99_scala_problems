@@ -18,12 +18,26 @@ object Problem27 {
   //
   //    scala> group(List(2, 2, 5), List("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
   //  res0: List[List[List[String]]] = List(List(List(Aldo, Beat), List(Carla, David), List(Evi, Flip, Gary, Hugo, Ida)), ...
-  //  Note that we do not want permutations of the group members; i.e. ((Aldo, Beat), ...) is the same solution as ((Beat, Aldo), ...). However, we make a difference between ((Aldo, Beat), (Carla, David), ...) and ((Carla, David), (Aldo, Beat), ...).
+  //  Note that we do not want permutations of the group members; i.e. ((Aldo, Beat), ...) is the same solution as ((Beat, Aldo), ...).
+  //  However, we make a difference between ((Aldo, Beat), (Carla, David), ...) and ((Carla, David), (Aldo, Beat), ...).
   //
   //  You may find more about this combinatorial problem in
   //  a good book on discrete mathematics under the term "multinomial coefficients".
   //
 
 
+  def group3[T](elements: List[T]) = {
+    group(
+      List(2, 3, 4),
+      elements
+    )
+  }
+
+
+  // TODO Implement
+  def group[T](
+    groupSizes: List[Int],
+    elements: List[T]
+  ): List[List[List[String]]] = throw new Exception("Not implemented yet.")
 
 }
