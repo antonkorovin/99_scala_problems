@@ -12,9 +12,7 @@ class Problem31Test
           with Matchers {
 
   test("example") {
-    pendingUntilFixed {
       7.isPrime shouldBe true
-    }
   }
 
 }
