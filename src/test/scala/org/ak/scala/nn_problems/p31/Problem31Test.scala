@@ -12,7 +12,22 @@ class Problem31Test
           with Matchers {
 
   test("example") {
-      7.isPrime shouldBe true
+    1.isPrime shouldBe true
+    2.isPrime shouldBe true
+    3.isPrime shouldBe true
+    4.isPrime shouldBe false
+    5.isPrime shouldBe true
+    7.isPrime shouldBe true
+    8.isPrime shouldBe false
+    9.isPrime shouldBe false
+    10.isPrime shouldBe false
+    11.isPrime shouldBe true
+    12.isPrime shouldBe false
+    13.isPrime shouldBe true
+    14.isPrime shouldBe false
+    15.isPrime shouldBe false
+    16.isPrime shouldBe false
+    17.isPrime shouldBe true
   }
 
 }
