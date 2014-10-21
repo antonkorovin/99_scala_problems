@@ -15,10 +15,10 @@ object Problem31 {
 
     @tailrec
     def isPrimeRec(n: Int): Boolean = {
-      if (i >= n) {
+      if (i <= n) {
         true
       } else {
-        i % n == 0 || isPrimeRec(n + 1)
+        i % n != 0 && isPrimeRec(n + 1)
       }
     }
 
