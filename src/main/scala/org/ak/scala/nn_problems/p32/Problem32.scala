@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p32
 
+import scala.annotation.tailrec
+
 /**
  * @author antonk
  * @since  10/22/14 - 12:32 AM
@@ -10,5 +12,9 @@ object Problem32 {
   //  scala> gcd(36, 63)
   //  res0: Int = 9
 
-  def gcd(a: Int, b: Int) = 0
+  @tailrec
+  def gcd(a: Int, b: Int): Int = {
+    if (b == 0) a
+    else gcd(b, a % b)
+  }
 }

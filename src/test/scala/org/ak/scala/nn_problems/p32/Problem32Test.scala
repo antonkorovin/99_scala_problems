@@ -11,9 +11,7 @@ class Problem32Test
           with Matchers {
 
   test("example") {
-    pendingUntilFixed {
-      Problem32.gcd(36, 63) shouldEqual 9
-    }
+    Problem32.gcd(36, 63) shouldEqual 9
   }
 
 }
