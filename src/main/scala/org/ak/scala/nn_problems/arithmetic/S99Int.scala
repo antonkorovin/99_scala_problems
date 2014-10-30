@@ -1,6 +1,7 @@
 package org.ak.scala.nn_problems.arithmetic
 
 import org.ak.scala.nn_problems.p31.Problem31
+import org.ak.scala.nn_problems.p33.Problem33
 
 import scala.language.implicitConversions
 
@@ -10,6 +11,7 @@ import scala.language.implicitConversions
  */
 class S99Int(start: Int) {
   def isPrime = Problem31.isPrime(start)
+  def isCoprimeTo(b: Int) = Problem33.isCoprime(start, b)
 }
 
 object S99Int {
