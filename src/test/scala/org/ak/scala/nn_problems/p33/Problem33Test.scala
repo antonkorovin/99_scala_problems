@@ -13,9 +13,7 @@ class Problem33Test
           with Matchers {
 
   test("example") {
-    pendingUntilFixed {
       35.isCoprimeTo(64) shouldBe true
-    }
   }
 
 }

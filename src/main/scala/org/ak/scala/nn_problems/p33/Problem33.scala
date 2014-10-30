@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p33
 
+import org.ak.scala.nn_problems.p32.Problem32
+
 /**
  * @author antonk
  * @since  10/26/14 - 6:33 AM
@@ -11,5 +13,6 @@ object Problem33 {
   //  res0: Boolean = true
 
 
-  def isCoprime(a: Int, b: Int) = false
+  def isCoprime(a: Int, b: Int) = Problem32.gcd(a, b ) == 1
+
 }
