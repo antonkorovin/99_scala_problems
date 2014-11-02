@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p34
 
+import org.ak.scala.nn_problems.arithmetic.S99Int._
+
 /**
  * @author antonk
  * @since  11/2/14 - 1:25 PM
@@ -10,5 +12,5 @@ object Problem34 {
   //  scala> 10.totient
   //  res0: Int = 4
 
-  def totient(a: Int) = 0
+  def totient(a: Int) = (1 to a).count(_.isCoprimeTo(a))
 }

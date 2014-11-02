@@ -12,9 +12,7 @@ class Problem34Test
           with Matchers {
 
   test("example") {
-    pendingUntilFixed {
-      10.totient shouldEqual 4
-    }
+    10.totient shouldEqual 4
   }
 
 }
