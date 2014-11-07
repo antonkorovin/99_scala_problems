@@ -11,6 +11,11 @@ class Problem31Test
   extends FunSuite
           with Matchers {
 
+  private val methodsUnderTest = Seq(
+    Problem31.isPrime _
+  )
+
+
   test("example") {
     1.isPrime shouldBe true
     2.isPrime shouldBe true
@@ -28,6 +33,27 @@ class Problem31Test
     15.isPrime shouldBe false
     16.isPrime shouldBe false
     17.isPrime shouldBe true
+  }
+
+
+  test("various methods") {
+    val numbers = (1 to 17).map(
+      i =>
+        (i, i.isPrime)
+    )
+
+
+    methodsUnderTest.foreach {
+      method =>
+
+        numbers.foreach {
+
+          number =>
+            method(number._1) shouldBe number._2
+
+        }
+
+    }
   }
 
 }
