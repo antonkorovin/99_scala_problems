@@ -14,7 +14,7 @@ class Problem36Test
 
   test("example") {
 
-    315.primeFactorMultiplicity shouldEqual Map(3 -> 2, 5 -> 1, 7 -> 1)
+    315.primeFactorMultiplicity shouldEqual Map(1 -> 1, 3 -> 2, 5 -> 1, 7 -> 1)
 
   }
 
