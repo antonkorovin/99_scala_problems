@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p37
 
+import org.ak.scala.nn_problems.p36.Problem36
+
 /**
  * @author antonk
  * @since  1/15/16 - 12:06 AM
@@ -16,6 +18,12 @@ object Problem37 {
   //  Note that ab stands for the bth power of a.
 
   def totientImproved(a: Int) = {
-    a
+    Problem36
+      .primeFactorMultiplicity(a)
+      .filter(_._1 != 1)
+      .foldLeft(1) {
+      (t, p) =>
+        t * (p._1 - 1) * Math.pow(p._1, p._2 - 1).toInt
+    }
   }
 }
