@@ -33,14 +33,14 @@ class Problem25Test
 
   test("test various lists") {
     forAll(
-      Gen.chooseNum(5, 100).filter(_ > 5)
+      Gen.chooseNum(10, 100).filter(_ > 10)
     ) {
       size =>
         forAll(
           Gen.listOfN(
             size,
             Gen.alphaChar
-          ),
+          ).filter(_.size == size), // Because "Can we guarantee c.size == n (See issue #89)?"
           workers(Runtime.getRuntime.availableProcessors() + 1)
         ) {
 
@@ -84,8 +84,9 @@ class Problem25Test
 
 
   private def methodsUnderTest[T] = {
-    randomPermute[T] _ ::
-      randomPermuteUsingSort[T] _ ::
-      Nil
+    Seq(
+      randomPermute[T] _
+      , randomPermuteUsingSort[T] _
+    )
   }
 }
