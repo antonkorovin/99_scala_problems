@@ -12,11 +12,9 @@ class Problem35Test
           with Matchers {
 
   test("example") {
-    pendingUntilFixed {
 
       315.primeFactors shouldEqual List(3, 3, 5, 7)
 
-    }
   }
 
 }
