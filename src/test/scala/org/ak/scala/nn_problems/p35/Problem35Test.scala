@@ -13,7 +13,28 @@ class Problem35Test
 
   test("example") {
 
-      315.primeFactors shouldEqual List(3, 3, 5, 7)
+      315.primeFactors shouldEqual List(1, 3, 3, 5, 7)
+
+  }
+
+
+  test("prime factors for 1") {
+
+    1.primeFactors shouldEqual List(1)
+
+  }
+
+
+  test("prime factors for 2") {
+
+    2.primeFactors shouldEqual List(1, 2)
+
+  }
+
+
+  test("prime factors for 3") {
+
+    3.primeFactors shouldEqual List(1, 3)
 
   }
 

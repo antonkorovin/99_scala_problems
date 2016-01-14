@@ -13,7 +13,11 @@ object Problem35 {
   //  res0: List[Int] = List(3, 3, 5, 7)
 
   def primeFactorsCount(n: Int): List[Int] = {
-    primesUnder(n).flatMap { p =>
+    val under = primesUnder(n)
+
+    println(s"Primes under $under")
+
+    under.flatMap { p =>
       Seq.fill(
         primeFactorsCount(n, p)
       )(p)
@@ -27,7 +31,9 @@ object Problem35 {
     p: Int,
     factorsCount: Int = 0
   ): Int = {
-    if (n % p != 0) {
+    if (p == 1) {
+      1
+    } else if (n % p != 0) {
       factorsCount
     } else {
       primeFactorsCount(
@@ -39,14 +45,15 @@ object Problem35 {
   }
 
   def primesUnder(n: Int): List[Int] = {
-    require(n >= 2)
+    require(n >= 1)
+    println (s"Checking $n")
 
-    def isPrime(num: Int, factors: List[Int]) = factors.forall(num % _ != 0)
+    def isPrime(num: Int, factors: List[Int]) = factors.forall(p => p == 1 || num % p != 0)
 
 
     @tailrec
     def primesUnderRec(i: Int, primes: List[Int]): List[Int] = {
-      if (i >= n) {
+      if (i > n) {
         primes
       } else if (isPrime(i, primes)) {
         primesUnderRec(i + 1, i :: primes)
@@ -55,7 +62,7 @@ object Problem35 {
       }
     }
 
-    primesUnderRec(2, List()).reverse
+    primesUnderRec(1, List()).reverse
   }
 
 }
