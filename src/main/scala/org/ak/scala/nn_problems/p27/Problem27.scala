@@ -26,18 +26,19 @@ object Problem27 {
   //
 
 
-  def group3[T](elements: List[T]) = {
+  def group3[A](ls: List[A]): List[List[List[A]]] = {
+    require(ls.size == 9, "")
+
     group(
       List(2, 3, 4),
-      elements
+      ls
     )
   }
 
 
-  // TODO Implement
-  def group[T](
-    groupSizes: List[Int],
-    elements: List[T]
-  ): List[List[List[String]]] = throw new Exception("Not implemented yet.")
+
+  def group[A](ns: List[Int], ls: List[A]): List[List[List[A]]] = {
+    List.empty
+  }
 
 }
