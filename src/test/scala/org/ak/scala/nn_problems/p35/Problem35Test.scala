@@ -1,7 +1,7 @@
 package org.ak.scala.nn_problems.p35
 
 import org.ak.scala.nn_problems.arithmetic.S99Int._
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
 
 /**
  * @author antonk
@@ -12,9 +12,9 @@ class Problem35Test
           with Matchers {
 
   test("example") {
-    pendingUntilFixed{
+    pendingUntilFixed {
 
-      315.primeFactors shouldEqual List(3, 3, 5 ,6)
+      315.primeFactors shouldEqual List(3, 3, 5, 7)
 
     }
   }
