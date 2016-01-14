@@ -12,31 +12,33 @@ object Problem35 {
   //    scala> 315.primeFactors
   //  res0: List[Int] = List(3, 3, 5, 7)
 
-  def primeFactors(n: Int): List[Int] = {
+  def primeFactorsCount(n: Int): List[Int] = {
     primesUnder(n).flatMap { p =>
-      primeFactors(n, p)
+      Seq.fill(
+        primeFactorsCount(n, p)
+      )(p)
     }
   }
 
 
   @tailrec
-  private def primeFactors(
+  def primeFactorsCount(
     n: Int,
     p: Int,
-    factors: List[Int] = List.empty
-  ): List[Int] = {
+    factorsCount: Int = 0
+  ): Int = {
     if (n % p != 0) {
-      factors
+      factorsCount
     } else {
-      primeFactors(
+      primeFactorsCount(
         n / p,
         p,
-        p :: factors
+        factorsCount + 1
       )
     }
   }
 
-  private def primesUnder(n: Int): List[Int] = {
+  def primesUnder(n: Int): List[Int] = {
     require(n >= 2)
 
     def isPrime(num: Int, factors: List[Int]) = factors.forall(num % _ != 0)
