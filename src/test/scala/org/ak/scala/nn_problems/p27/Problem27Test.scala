@@ -652,6 +652,8 @@ class Problem27Test
       Problem27.group3(
         (1 to 9).toList
       ) shouldEqual expected
+
+      throw new NoSuchMethodException("Not implemented yet.")
     }
   }
 
@@ -663,22 +665,26 @@ class Problem27Test
       List(3)
     )
 
-    runTestFor(
-      ns = List(1),
-      ls = (1 to 3).toList,
-      expected
-    )
+    pendingUntilFixed {
+      runTestFor(
+        ns = List(1),
+        ls = (1 to 3).toList,
+        expected
+      )
+    }
   }
 
 
   test("group (2), (1..3)") {
     val expected = List(List(List(1,2)),List(List(1,3)),List(List(2,3)))
 
-    runTestFor(
-      ns = List(2),
-      ls = (1 to 3).toList,
-      expected
-    )
+    pendingUntilFixed {
+      runTestFor(
+        ns = List(2),
+        ls = (1 to 3).toList,
+        expected
+      )
+    }
   }
 
 
@@ -689,11 +695,13 @@ class Problem27Test
       )
     )
 
-    runTestFor(
-      ns = List(2),
-      ls = (1 to 3).toList,
-      expected
-    )
+    pendingUntilFixed {
+      runTestFor(
+        ns = List(2),
+        ls = (1 to 3).toList,
+        expected
+      )
+    }
   }
 
 
@@ -703,11 +711,13 @@ class Problem27Test
       List(List(3), List(1)), List(List(3), List(2))
     )
 
-    runTestFor(
-      ns = List(1, 1),
-      ls = (1 to 3).toList,
-      expected
-    )
+    pendingUntilFixed {
+      runTestFor(
+        ns = List(1, 1),
+        ls = (1 to 3).toList,
+        expected
+      )
+    }
   }
 
 
@@ -723,11 +733,13 @@ class Problem27Test
       List(List(5), List(2, 4)), List(List(5), List(3, 4))
     )
 
-    runTestFor(
-      ns = List(1, 1),
-      ls = (1 to 5).toList,
-      expected
-    )
+    pendingUntilFixed {
+      runTestFor(
+        ns = List(1, 1),
+        ls = (1 to 5).toList,
+        expected
+      )
+    }
   }
 
 
@@ -743,11 +755,14 @@ class Problem27Test
       List(List(5), List(2, 4)), List(List(5), List(3, 4))
     )
 
-    runTestFor(
-      ns = List(1, 2),
-      ls = (1 to 5).toList,
-      expected
-    )
+
+    pendingUntilFixed {
+      runTestFor(
+        ns = List(1, 2),
+        ls = (1 to 5).toList,
+        expected
+      )
+    }
   }
 
 
@@ -785,11 +800,14 @@ class Problem27Test
       List(List(5),List(3,4),List(1,2))
     )
 
-    runTestFor(
-      ns = List(1, 2),
-      ls = (1 to 5).toList,
-      expected
-    )
+
+    pendingUntilFixed {
+      runTestFor(
+        ns = List(1, 2),
+        ls = (1 to 5).toList,
+        expected
+      )
+    }
   }
 
 
