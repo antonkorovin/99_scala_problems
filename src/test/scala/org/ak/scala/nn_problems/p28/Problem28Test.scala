@@ -34,6 +34,31 @@ class Problem28Test
     )
   }
 
+  test("lsortNonStandard example (with sort implementation)") {
+    val list = List(
+      List(Symbol("a"), Symbol("b"), Symbol("c"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("f"), Symbol("g"), Symbol("h"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+      , List(Symbol("m"), Symbol("n"))
+      , List(Symbol("o"))
+    )
+
+    pendingUntilFixed {
+      Problem28.lsortNonStandard(
+        list
+      ) shouldEqual List(
+        List(Symbol("o"))
+        , List(Symbol("d"), Symbol("e"))
+        , List(Symbol("d"), Symbol("e"))
+        , List(Symbol("m"), Symbol("n"))
+        , List(Symbol("a"), Symbol("b"), Symbol("c"))
+        , List(Symbol("f"), Symbol("g"), Symbol("h"))
+        , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+      )
+    }
+  }
 
   test("lsortFreq example") {
     val list = List(

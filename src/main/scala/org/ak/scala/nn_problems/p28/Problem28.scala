@@ -30,6 +30,8 @@ object Problem28 {
 
   def lsort[T](list: List[List[T]]): List[List[T]] = list.sortBy(_.size)
 
+  def lsortNonStandard[T](list: List[List[T]]): List[List[T]] = list
+
 
   // TODO Implement
   def lsortFreq[T](list: List[List[T]]): List[List[T]] = list
