@@ -12,8 +12,29 @@ class Problem16Test
   test("example test") {
     import Problem16._
 
-    val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
-    val expList = List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+    val srcList = List(
+      Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("f")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("i")
+      , Symbol("j")
+      , Symbol("k")
+    )
+    val expList = List(
+      Symbol("a")
+      , Symbol("b")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("j")
+      , Symbol("k")
+    )
 
     drop(
       3,

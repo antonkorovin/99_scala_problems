@@ -2,7 +2,6 @@ package org.ak.scala.nn_problems.p25
 
 import org.ak.scala.nn_problems.p23.Problem23
 
-import scala.annotation.tailrec
 import scala.util.Random
 
 /**
@@ -32,7 +31,7 @@ object Problem25 {
 
   def randomPermuteUsingSort[T](list: List[T]) = {
     list.zip(
-      Stream.continually(Random.nextInt())
+      LazyList.continually(Random.nextInt())
     ).sortWith(_._2 < _._2).map(_._1)
   }
 

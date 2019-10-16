@@ -4,8 +4,8 @@ import java.util.NoSuchElementException
 
 import org.ak.scala.nn_problems.GenUtil
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -14,7 +14,7 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem01Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
   val srcList = List(
     1,

@@ -12,8 +12,19 @@ class Problem14Test
     test("example test") {
       import Problem14._
 
-      val srcList = List('a, 'b, 'c, 'c, 'd)
-      val expList = List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
+      val srcList = List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("c"), Symbol("d"))
+      val expList = List(
+        Symbol("a")
+        , Symbol("a")
+        , Symbol("b")
+        , Symbol("b")
+        , Symbol("c")
+        , Symbol("c")
+        , Symbol("c")
+        , Symbol("c")
+        , Symbol("d")
+        , Symbol("d")
+      )
 
       duplicate(srcList) shouldEqual expList
       duplicateUsingFoldLeft(srcList) shouldEqual expList

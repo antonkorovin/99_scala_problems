@@ -1,10 +1,10 @@
 package org.ak.scala.nn_problems.p11
 
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
 
 /**
  * @author antonk
- * @since  8/15/14 - 3:43 PM
+ * @since 8/15/14 - 3:43 PM
  */
 class Problem11Test
   extends FunSuite with Matchers {
@@ -13,8 +13,30 @@ class Problem11Test
   test("example test") {
     import Problem11._
 
-    val srcList = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
-    val expList = List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
+    val srcList = List(
+      Symbol("a")
+      , Symbol("a")
+      , Symbol("a")
+      , Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("c")
+      , Symbol("a")
+      , Symbol("a")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("e")
+      , Symbol("e")
+      , Symbol("e")
+    )
+    val expList = List(
+      (4, Symbol("a"))
+      , Symbol("b")
+      , (2, Symbol("c"))
+      , (2, Symbol("a"))
+      , Symbol("d")
+      , (4, Symbol("e"))
+    )
 
 
     encodeTailRecursive(srcList) shouldEqual expList

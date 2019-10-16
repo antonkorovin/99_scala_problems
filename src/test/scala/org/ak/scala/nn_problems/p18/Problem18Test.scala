@@ -3,8 +3,8 @@ package org.ak.scala.nn_problems.p18
 import org.ak.scala.nn_problems.GenUtil
 import org.ak.scala.nn_problems.p18.Problem18._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -13,11 +13,23 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem18Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {
-    val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+    val srcList = List(
+      Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("f")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("i")
+      , Symbol("j")
+      , Symbol("k")
+    )
 
     check(
       srcList,
@@ -61,7 +73,7 @@ class Problem18Test
     list: List[T],
     from: Int,
     until: Int
-  ) {
+  ): Unit = {
     slice(
       from,
       until,

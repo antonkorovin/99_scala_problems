@@ -1,8 +1,8 @@
 package org.ak.scala.nn_problems.p23
 
 import org.ak.scala.nn_problems.p23.Problem23._
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -11,9 +11,9 @@ import org.scalatest.{Matchers, FunSuite}
 class Problem23Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
   test("example test") {
-    val srcList = List('a, 'b, 'c, 'd, 'f, 'g, 'h)
+    val srcList = List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("f"), Symbol("g"), Symbol("h"))
 
     val selected = randomSelect(
       3,

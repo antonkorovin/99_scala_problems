@@ -5,8 +5,8 @@ import java.util.NoSuchElementException
 import org.ak.scala.nn_problems.GenUtil
 import org.ak.scala.nn_problems.p20.Problem20._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -15,12 +15,12 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem20Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {
-    val srcList = List('a, 'b, 'c, 'd)
-    val expList = (List('a, 'c, 'd), 'b)
+    val srcList = List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"))
+    val expList = (List(Symbol("a"), Symbol("c"), Symbol("d")), Symbol("b"))
 
 
     removeAt(
@@ -48,9 +48,7 @@ class Problem20Test
         GenUtil.chooseAllOfInt()
       ),
       minSize(0),
-      maxSize(100),
-      maxDiscarded(0),
-      workers(Runtime.getRuntime.availableProcessors() + 1)
+      sizeRange(100)
     ) {
       list =>
 
@@ -113,45 +111,43 @@ class Problem20Test
       Gen.nonEmptyListOf(
         GenUtil.chooseAllOfInt()
       ),
-      maxSize(100),
-      maxDiscarded(0),
-      workers(Runtime.getRuntime.availableProcessors() + 1)
+      sizeRange(100)
     ) {
       list =>
         removeAt(
           0,
           list
-        ) shouldEqual(list.tail, list.head)
+        ) shouldEqual(list.tail -> list.head)
 
 
         removeAt(
           list.size - 1,
           list
-        ) shouldEqual(list.init, list.last)
+        ) shouldEqual(list.init -> list.last)
 
 
         removeAtUsingSplitAt(
           0,
           list
-        ) shouldEqual(list.tail, list.head)
+        ) shouldEqual(list.tail -> list.head)
 
 
         removeAtUsingSplitAt(
           list.size - 1,
           list
-        ) shouldEqual(list.init, list.last)
+        ) shouldEqual(list.init -> list.last)
 
 
         removeAtUsingTakeAndDrop(
           0,
           list
-        ) shouldEqual(list.tail, list.head)
+        ) shouldEqual(list.tail -> list.head)
 
 
         removeAtUsingTakeAndDrop(
           list.size - 1,
           list
-        ) shouldEqual(list.init, list.last)
+        ) shouldEqual(list.init -> list.last)
     }
   }
 }

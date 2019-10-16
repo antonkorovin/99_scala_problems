@@ -3,8 +3,8 @@ package org.ak.scala.nn_problems.p17
 import org.ak.scala.nn_problems.GenUtil
 import org.ak.scala.nn_problems.p17.Problem17._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -13,11 +13,23 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem17Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {
-    val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+    val srcList = List(
+      Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("f")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("i")
+      , Symbol("j")
+      , Symbol("k")
+    )
 
     check(
       srcList,
@@ -53,22 +65,22 @@ class Problem17Test
     list: List[T],
     n: Int,
     expected: (List[T], List[T])
-  ) {
+  ): Unit = {
     split(
       n,
       list
-    ) shouldEqual list.splitAt(n)
+    ) shouldEqual expected
 
 
     splitV2(
       n,
       list
-    ) shouldEqual list.splitAt(n)
+    ) shouldEqual expected
 
 
     splitUsingTakeAndDrop(
       n,
       list
-    ) shouldEqual list.splitAt(n)
+    ) shouldEqual expected
   }
 }

@@ -10,8 +10,31 @@ class Problem08Test
   extends FunSuite with Matchers {
 
   test("example test") {
-    val srcList = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
-    val expList = List('a, 'b, 'c, 'a, 'd, 'e)
+    val srcList = List(
+      Symbol("a")
+      , Symbol("a")
+      , Symbol("a")
+      , Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("c")
+      , Symbol("a")
+      , Symbol("a")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("e")
+      , Symbol("e")
+      , Symbol("e")
+    )
+
+    val expList = List(
+      Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("a")
+      , Symbol("d")
+      , Symbol("e")
+    )
 
     import org.ak.scala.nn_problems.p08.Problem08._
 

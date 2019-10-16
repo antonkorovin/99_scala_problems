@@ -3,8 +3,8 @@ package org.ak.scala.nn_problems.p19
 import org.ak.scala.nn_problems.GenUtil
 import org.ak.scala.nn_problems.p19.Problem19._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -13,14 +13,50 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem19Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {
-    val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)
+    val srcList = List(
+      Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("f")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("i")
+      , Symbol("j")
+      , Symbol("k")
+    )
 
-    val expPosList = List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
-    val expNegList = List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+    val expPosList = List(
+      Symbol("d")
+      , Symbol("e")
+      , Symbol("f")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("i")
+      , Symbol("j")
+      , Symbol("k")
+      , Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+    )
+    val expNegList = List(
+      Symbol("j")
+      , Symbol("k")
+      , Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("f")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("i")
+    )
 
 
     check(
@@ -50,9 +86,7 @@ class Problem19Test
         GenUtil.chooseAllOfInt()
       ),
       minSize(0),
-      maxSize(100),
-      maxDiscarded(0),
-      workers(Runtime.getRuntime.availableProcessors() + 1)
+      sizeRange(100)
     ) {
       list =>
 
@@ -77,7 +111,7 @@ class Problem19Test
     n: Int,
     expList: List[T],
     functions: RotateFunction*
-  ) {
+  ): Unit = {
     functions.foreach {
       rotateFun =>
         rotateFun(n, srcList) shouldEqual expList

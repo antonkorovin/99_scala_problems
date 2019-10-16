@@ -11,38 +11,54 @@ class Problem28Test
           with Matchers {
 
   test("lsort example") {
-    val list = List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))
+    val list = List(
+      List(Symbol("a"), Symbol("b"), Symbol("c"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("f"), Symbol("g"), Symbol("h"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+      , List(Symbol("m"), Symbol("n"))
+      , List(Symbol("o"))
+    )
 
     pendingUntilFixed {
       Problem28.lsort(
         list
       ) shouldEqual List(
-        List('o),
-        List('d, 'e),
-        List('d, 'e),
-        List('m, 'n),
-        List('a, 'b, 'c),
-        List('f, 'g, 'h),
-        List('i, 'j, 'k, 'l)
+        List(Symbol("o"))
+        , List(Symbol("d"), Symbol("e"))
+        , List(Symbol("d"), Symbol("e"))
+        , List(Symbol("m"), Symbol("n"))
+        , List(Symbol("a"), Symbol("b"), Symbol("c"))
+        , List(Symbol("f"), Symbol("g"), Symbol("h"))
+        , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
       )
     }
   }
 
 
   test("lsortFreq example") {
-    val list = List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))
+    val list = List(
+      List(Symbol("a"), Symbol("b"), Symbol("c"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("f"), Symbol("g"), Symbol("h"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+      , List(Symbol("m"), Symbol("n"))
+      , List(Symbol("o"))
+    )
 
     pendingUntilFixed {
       Problem28.lsortFreq(
         list
       ) shouldEqual List(
-        List('i, 'j, 'k, 'l),
-        List('o),
-        List('a, 'b, 'c),
-        List('f, 'g, 'h),
-        List('d, 'e),
-        List('d, 'e),
-        List('m, 'n)
+        List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+        , List(Symbol("o"))
+        , List(Symbol("a"), Symbol("b"), Symbol("c"))
+        , List(Symbol("f"), Symbol("g"), Symbol("h"))
+        , List(Symbol("d"), Symbol("e"))
+        , List(Symbol("d"), Symbol("e"))
+        , List(Symbol("m"), Symbol("n"))
       )
     }
   }

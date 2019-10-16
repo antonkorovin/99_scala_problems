@@ -2,8 +2,8 @@ package org.ak.scala.nn_problems.p26
 
 import org.ak.scala.nn_problems.p26.Problem26._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -12,7 +12,7 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem26Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
 
   test("ncr test") {
@@ -66,7 +66,17 @@ class Problem26Test
 
   test("combinations content test") {
 
-    val srcList = List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+    val srcList = List(
+      Symbol("a")
+      , Symbol("b")
+      , Symbol("c")
+      , Symbol("d")
+      , Symbol("e")
+      , Symbol("f")
+      , Symbol("g")
+      , Symbol("h")
+      , Symbol("i")
+    )
     val groupSize = 5
 
     val expectedSize = ncr(srcList.size, groupSize)

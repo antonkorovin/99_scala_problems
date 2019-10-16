@@ -2,8 +2,8 @@ package org.ak.scala.nn_problems.p25
 
 import org.ak.scala.nn_problems.p25.Problem25._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -12,7 +12,7 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem25Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
   type PermuteMethod = List[Char] => List[Char]
 
@@ -41,7 +41,6 @@ class Problem25Test
             size,
             Gen.alphaChar
           ).filter(_.size == size), // Because "Can we guarantee c.size == n (See issue #89)?"
-          workers(Runtime.getRuntime.availableProcessors() + 1)
         ) {
 
           list =>
@@ -75,7 +74,7 @@ class Problem25Test
   private def checkLists[T](
     expected: List[T],
     actual: List[T]
-  ) {
+  ): Unit = {
     actual should have size expected.size
     actual should not contain theSameElementsInOrderAs(expected)
 

@@ -1,7 +1,6 @@
 package org.ak.scala.nn_problems.p07
 
 import scala.annotation.tailrec
-import scala.collection.mutable.ArrayBuffer
 
 /**
  * @author antonk

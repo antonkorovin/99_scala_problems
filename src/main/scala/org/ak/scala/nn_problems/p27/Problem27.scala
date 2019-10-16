@@ -38,6 +38,9 @@ object Problem27 {
 
 
   def group[A](ns: List[Int], ls: List[A]): List[List[List[A]]] = {
+    require(ns != null)
+    require(ls != null)
+
     List.empty
   }
 

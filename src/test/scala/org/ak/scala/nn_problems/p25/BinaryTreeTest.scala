@@ -1,7 +1,7 @@
 package org.ak.scala.nn_problems.p25
 
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -10,7 +10,7 @@ import org.scalatest.{FunSuite, Matchers}
 class BinaryTreeTest
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
   test("empty tree") {
     EmptyLeaf.empty shouldBe true

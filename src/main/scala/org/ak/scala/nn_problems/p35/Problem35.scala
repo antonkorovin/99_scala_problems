@@ -1,5 +1,6 @@
 package org.ak.scala.nn_problems.p35
 
+
 import scala.annotation.tailrec
 
 /**
@@ -13,7 +14,7 @@ object Problem35 {
   //  res0: List[Int] = List(3, 3, 5, 7)
 
   def primeFactorsCount(n: Int): List[Int] = {
-      primesUnder(n).flatMap { p =>
+    primesUnder(n).flatMap { p =>
       Seq.fill(
         primeFactorsCount(n, p)
       )(p)

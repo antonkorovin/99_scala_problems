@@ -3,39 +3,40 @@ package org.ak.scala.nn_problems.p21
 import org.ak.scala.nn_problems.GenUtil
 import org.ak.scala.nn_problems.p21.Problem21._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 import scala.util.Random
 
 /**
  * @author antonk
- * @since  8/19/14 - 2:23 PM
+ * @since 8/19/14 - 2:23 PM
  */
 class Problem21Test
   extends FunSuite
-          with Matchers
-          with GeneratorDrivenPropertyChecks{
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
+
   test("example test") {
-    val srcList = List('a, 'b, 'c, 'd)
-    val expList = List('a, 'new, 'b, 'c, 'd)
+    val srcList = List(Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"))
+    val expList = List(Symbol("a"), Symbol("new"), Symbol("b"), Symbol("c"), Symbol("d"))
 
 
     insertAt(
-      'new,
+      Symbol("new"),
       1,
       srcList
     ) shouldEqual expList
 
     insertAtUsingTakeAndDrop(
-      'new,
+      Symbol("new"),
       1,
       srcList
     ) shouldEqual expList
 
 
     insertAtUsingSplitAt(
-      'new,
+      Symbol("new"),
       1,
       srcList
     ) shouldEqual expList
@@ -47,7 +48,7 @@ class Problem21Test
       element: T,
       srcList: List[T],
       functions:  ((Any, Int, List[Any]) => List[Any]) *
-    ) {
+    ): Unit = {
       functions.foreach{
         f =>
           f(
@@ -66,15 +67,12 @@ class Problem21Test
     }
 
 
-
     forAll(
       Gen.listOf(
         GenUtil.chooseAllOfInt()
       ),
       minSize(0),
-      maxSize(100),
-      maxDiscarded(0),
-      workers(Runtime.getRuntime.availableProcessors() + 1)
+      sizeRange(100)
     ) {
       list =>
         val element = Random.nextInt(100)

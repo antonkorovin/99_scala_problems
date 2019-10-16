@@ -1,10 +1,9 @@
 package org.ak.scala.nn_problems.p24
 
-import org.ak.scala.nn_problems.GenUtil
 import org.ak.scala.nn_problems.p24.Problem24._
 import org.scalacheck.Gen
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
  * @author antonk
@@ -13,7 +12,7 @@ import org.scalatest.{FunSuite, Matchers}
 class Problem24Test
   extends FunSuite
           with Matchers
-          with GeneratorDrivenPropertyChecks {
+          with ScalaCheckDrivenPropertyChecks {
 
   test("example test") {
     val list = lotto(6, 49)
