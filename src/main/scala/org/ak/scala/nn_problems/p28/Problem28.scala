@@ -28,8 +28,7 @@ object Problem28 {
   //  This is the most frequent length.
 
 
-  // TODO Implement
-  def lsort[T](list: List[List[T]]): List[List[T]] = list
+  def lsort[T](list: List[List[T]]): List[List[T]] = list.sortBy(_.size)
 
 
   // TODO Implement

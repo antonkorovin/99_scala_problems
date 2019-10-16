@@ -21,19 +21,17 @@ class Problem28Test
       , List(Symbol("o"))
     )
 
-    pendingUntilFixed {
-      Problem28.lsort(
-        list
-      ) shouldEqual List(
-        List(Symbol("o"))
-        , List(Symbol("d"), Symbol("e"))
-        , List(Symbol("d"), Symbol("e"))
-        , List(Symbol("m"), Symbol("n"))
-        , List(Symbol("a"), Symbol("b"), Symbol("c"))
-        , List(Symbol("f"), Symbol("g"), Symbol("h"))
-        , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-      )
-    }
+    Problem28.lsort(
+      list
+    ) shouldEqual List(
+      List(Symbol("o"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("m"), Symbol("n"))
+      , List(Symbol("a"), Symbol("b"), Symbol("c"))
+      , List(Symbol("f"), Symbol("g"), Symbol("h"))
+      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+    )
   }
 
 
