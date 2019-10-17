@@ -10,77 +10,53 @@ class Problem28Test
   extends FunSuite
           with Matchers {
 
-  test("lsort example") {
-    val list = List(
-      List(Symbol("a"), Symbol("b"), Symbol("c"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("f"), Symbol("g"), Symbol("h"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-      , List(Symbol("m"), Symbol("n"))
-      , List(Symbol("o"))
-    )
+  private val srcList: List[List[Symbol]] = List(
+    List(Symbol("a"), Symbol("b"), Symbol("c"))
+    , List(Symbol("d"), Symbol("e"))
+    , List(Symbol("f"), Symbol("g"), Symbol("h"))
+    , List(Symbol("d"), Symbol("e"))
+    , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+    , List(Symbol("m"), Symbol("n"))
+    , List(Symbol("o"))
+  )
 
+  private val sortedByLength: List[List[Symbol]] = List(
+    List(Symbol("o"))
+    , List(Symbol("d"), Symbol("e"))
+    , List(Symbol("d"), Symbol("e"))
+    , List(Symbol("m"), Symbol("n"))
+    , List(Symbol("a"), Symbol("b"), Symbol("c"))
+    , List(Symbol("f"), Symbol("g"), Symbol("h"))
+    , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+  )
+
+  private val sortedByLengthFrequency: List[List[Symbol]] = List(
+    List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+    , List(Symbol("o"))
+    , List(Symbol("a"), Symbol("b"), Symbol("c"))
+    , List(Symbol("f"), Symbol("g"), Symbol("h"))
+    , List(Symbol("d"), Symbol("e"))
+    , List(Symbol("d"), Symbol("e"))
+    , List(Symbol("m"), Symbol("n"))
+  )
+
+  test("lsort example") {
     Problem28.lsort(
-      list
-    ) shouldEqual List(
-      List(Symbol("o"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("m"), Symbol("n"))
-      , List(Symbol("a"), Symbol("b"), Symbol("c"))
-      , List(Symbol("f"), Symbol("g"), Symbol("h"))
-      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-    )
+      srcList
+    ) shouldEqual sortedByLength
   }
 
   test("lsortNonStandard example (with sort implementation)") {
-    val list = List(
-      List(Symbol("a"), Symbol("b"), Symbol("c"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("f"), Symbol("g"), Symbol("h"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-      , List(Symbol("m"), Symbol("n"))
-      , List(Symbol("o"))
-    )
-
     pendingUntilFixed {
       Problem28.lsortNonStandard(
-        list
-      ) shouldEqual List(
-        List(Symbol("o"))
-        , List(Symbol("d"), Symbol("e"))
-        , List(Symbol("d"), Symbol("e"))
-        , List(Symbol("m"), Symbol("n"))
-        , List(Symbol("a"), Symbol("b"), Symbol("c"))
-        , List(Symbol("f"), Symbol("g"), Symbol("h"))
-        , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-      )
+        srcList
+      ) shouldEqual sortedByLength
     }
   }
 
   test("lsortFreq example") {
-    val list = List(
-      List(Symbol("a"), Symbol("b"), Symbol("c"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("f"), Symbol("g"), Symbol("h"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-      , List(Symbol("m"), Symbol("n"))
-      , List(Symbol("o"))
-    )
-
     Problem28.lsortFreq(
-      list
-    ) shouldEqual List(
-      List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-      , List(Symbol("o"))
-      , List(Symbol("a"), Symbol("b"), Symbol("c"))
-      , List(Symbol("f"), Symbol("g"), Symbol("h"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("d"), Symbol("e"))
-      , List(Symbol("m"), Symbol("n"))
-    )
+      srcList
+    ) shouldEqual sortedByLengthFrequency
   }
 }
