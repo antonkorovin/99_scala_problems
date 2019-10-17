@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p28
 
+import org.ak.scala.nn_problems.p10.Problem10
+
 /**
  * @author antonk
  * @since  10/14/14 - 7:16 AM
@@ -33,6 +35,16 @@ object Problem28 {
   def lsortNonStandard[T](list: List[List[T]]): List[List[T]] = list
 
 
-  // TODO Implement
-  def lsortFreq[T](list: List[List[T]]): List[List[T]] = list
+  def lsortFreq[A](list: List[List[A]]): List[List[A]] = {
+    val frequencies = Map.from(
+      Problem10.encodeTailRecursive(
+        list.map(_.length).sorted
+      ) map { _.swap }
+    )
+
+    list.sortWith {
+      (e1, e2) =>
+        frequencies(e1.length) < frequencies(e2.length)
+    }
+  }
 }

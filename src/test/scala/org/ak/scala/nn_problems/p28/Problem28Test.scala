@@ -71,18 +71,16 @@ class Problem28Test
       , List(Symbol("o"))
     )
 
-    pendingUntilFixed {
-      Problem28.lsortFreq(
-        list
-      ) shouldEqual List(
-        List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
-        , List(Symbol("o"))
-        , List(Symbol("a"), Symbol("b"), Symbol("c"))
-        , List(Symbol("f"), Symbol("g"), Symbol("h"))
-        , List(Symbol("d"), Symbol("e"))
-        , List(Symbol("d"), Symbol("e"))
-        , List(Symbol("m"), Symbol("n"))
-      )
-    }
+    Problem28.lsortFreq(
+      list
+    ) shouldEqual List(
+      List(Symbol("i"), Symbol("j"), Symbol("k"), Symbol("l"))
+      , List(Symbol("o"))
+      , List(Symbol("a"), Symbol("b"), Symbol("c"))
+      , List(Symbol("f"), Symbol("g"), Symbol("h"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("d"), Symbol("e"))
+      , List(Symbol("m"), Symbol("n"))
+    )
   }
 }
