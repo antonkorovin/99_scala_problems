@@ -59,4 +59,12 @@ class Problem28Test
       srcList
     ) shouldEqual sortedByLengthFrequency
   }
+
+  test("lsortFreqOpt example") {
+    pendingUntilFixed {
+      Problem28.lsortFreqOpt(
+        srcList
+      ) shouldEqual sortedByLengthFrequency
+    }
+  }
 }

@@ -47,4 +47,8 @@ object Problem28 {
         frequencies(e1.length) < frequencies(e2.length)
     }
   }
+
+  def lsortFreqOpt[A](list: List[List[A]]): List[List[A]] = {
+    list
+  }
 }
