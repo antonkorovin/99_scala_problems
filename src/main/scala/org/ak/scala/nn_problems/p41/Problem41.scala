@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p41
 
+import org.ak.scala.nn_problems.p40.Problem40
+
 object Problem41 {
   // (**) A list of Goldbach compositions.
   // Given a range of integers by its lower and upper limit,
@@ -24,14 +26,14 @@ object Problem41 {
   // 1928 = 61 + 1867
 
   def goldbachList(r: Range): List[(Int, Int)] = {
-    List(
-      r.start -> r.end
-    )
+    r.filter(_ > 2).filter(_ % 2 == 0).map {
+        Problem40.goldbachConjecture
+    }.toList
   }
 
   def goldbachListLimited(r: Range, lowerBound: Int): List[(Int, Int)] = {
-    List(
-      (r.start + lowerBound) -> (r.end + lowerBound)
-    )
+    goldbachList(r).filter {
+      case (n, m) => n > lowerBound && m > lowerBound
+    }
   }
 }
