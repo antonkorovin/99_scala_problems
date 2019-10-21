@@ -7,9 +7,7 @@ class Problem40Test
     with Matchers {
 
   test("smoke") {
-    pendingUntilFixed {
-      Problem40.goldbachConjecture(28) shouldBe (5 -> 23)
-    }
+    Problem40.goldbachConjecture(28) shouldBe (5 -> 23)
   }
 
 }

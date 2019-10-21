@@ -1,5 +1,7 @@
 package org.ak.scala.nn_problems.p40
 
+import org.ak.scala.nn_problems.arithmetic.Primes
+
 object Problem40 {
   // Goldbach's conjecture says that every positive
   // even number greater than 2 is the sum of two prime numbers.
@@ -12,6 +14,21 @@ object Problem40 {
 
 
   def goldbachConjecture(n: Int): (Int, Int) = {
-    (n, n)
+    require(n > 2)
+    require(n % 2 == 0)
+
+    val primes = Primes.stream.takeWhile(_ <= n).toList
+
+    val primePairs = Primes.stream.takeWhile(_ <= n).flatMap {
+      k =>
+        primes.collectFirst {
+          case m if m + k == n =>
+            k -> m
+        }
+    }
+
+    require(primePairs.nonEmpty)
+
+    primePairs.head
   }
 }
