@@ -1,5 +1,6 @@
 package org.ak.scala.nn_problems.p39
 
+import org.ak.scala.nn_problems.arithmetic.Primes
 import org.ak.scala.nn_problems.p31.Problem31
 
 object Problem39 {
@@ -10,5 +11,9 @@ object Problem39 {
 
   def listPrimesInRange(range: Range): List[Int] = {
     range.filter(Problem31.isPrime).toList
+  }
+
+  def primesInRangeFromStream(range: Range): List[Int] = {
+    Primes.stream.dropWhile(_ < range.start).takeWhile(_ <= range.end).toList
   }
 }
