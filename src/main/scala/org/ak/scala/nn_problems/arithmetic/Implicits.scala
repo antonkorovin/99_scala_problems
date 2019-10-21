@@ -6,8 +6,6 @@ import org.ak.scala.nn_problems.p34.Problem34
 import org.ak.scala.nn_problems.p35.Problem35
 import org.ak.scala.nn_problems.p36.Problem36
 
-import scala.language.implicitConversions
-
 /**
   * @author antonk
   * @since 10/17/14 - 1:42 AM
@@ -16,15 +14,15 @@ import scala.language.implicitConversions
 trait Implicits {
 
   implicit class S99Int(start: Int) {
-    def isPrime = Problem31.isPrime(start)
+    def isPrime: Boolean = Problem31.isPrime(start)
 
-    def isCoprimeTo(b: Int) = Problem33.isCoprime(start, b)
+    def isCoprimeTo(b: Int): Boolean = Problem33.isCoprime(start, b)
 
-    def totient = Problem34.totient(start)
+    def totient: Int = Problem34.totient(start)
 
-    def primeFactors = Problem35.primeFactorsCount(start)
+    def primeFactors: List[Int] = Problem35.primeFactorsCount(start)
 
-    def primeFactorMultiplicity = Problem36.primeFactorMultiplicity(start)
+    def primeFactorMultiplicity: Map[Int, Int] = Problem36.primeFactorMultiplicity(start)
   }
 
 }

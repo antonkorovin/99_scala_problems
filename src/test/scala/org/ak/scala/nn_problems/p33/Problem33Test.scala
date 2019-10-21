@@ -1,7 +1,7 @@
 package org.ak.scala.nn_problems.p33
 
 
-import org.ak.scala.nn_problems.arithmetic.S99Int._
+import org.ak.scala.nn_problems.arithmetic.Implicits._
 import org.scalatest.{FunSuite, Matchers}
 
 /**

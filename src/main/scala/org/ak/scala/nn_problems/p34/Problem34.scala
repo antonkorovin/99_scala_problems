@@ -1,6 +1,6 @@
 package org.ak.scala.nn_problems.p34
 
-import org.ak.scala.nn_problems.arithmetic.S99Int._
+import org.ak.scala.nn_problems.arithmetic.Implicits._
 
 /**
  * @author antonk

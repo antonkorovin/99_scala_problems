@@ -1,6 +1,6 @@
 package org.ak.scala.nn_problems.p40
 
-import org.ak.scala.nn_problems.arithmetic._
+import org.ak.scala.nn_problems.arithmetic
 import org.scalacheck.Gen
 import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
@@ -8,7 +8,8 @@ import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 class Problem40Test
   extends FunSuite
     with Matchers
-    with ScalaCheckDrivenPropertyChecks {
+    with ScalaCheckDrivenPropertyChecks
+    with arithmetic.Implicits {
 
   test("smoke") {
     Problem40.goldbachConjecture(28) shouldBe (5 -> 23)
