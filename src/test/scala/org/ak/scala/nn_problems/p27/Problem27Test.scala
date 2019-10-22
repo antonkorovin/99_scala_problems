@@ -10,6 +10,10 @@ class Problem27Test
   extends FunSuite
           with Matchers {
 
+  test("groups count") {
+    Problem27.combinationsCount(List(3, 4, 3), 10) shouldBe 4200
+  }
+
   test("group3") {
       val expected: List[List[List[Int]]] = List.empty
 // TODO: Read expected data from file.

@@ -23,6 +23,17 @@ trait Implicits {
     def primeFactors: List[Int] = Problem35.primeFactorsCount(start)
 
     def primeFactorMultiplicity: Map[Int, Int] = Problem36.primeFactorMultiplicity(start)
+
+    def ! : Int = factorial
+
+
+    def factorial : Int = {
+      start match {
+        case 0 => 1
+        case n if n < 0 => throw new IllegalArgumentException("Factorial of negative")
+        case _ => (1 to start).product
+      }
+    }
   }
 
 }
