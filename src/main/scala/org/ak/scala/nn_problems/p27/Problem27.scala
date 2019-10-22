@@ -1,11 +1,12 @@
 package org.ak.scala.nn_problems.p27
 
 import org.ak.scala.nn_problems.arithmetic
+import org.ak.scala.nn_problems.p26.Problem26
 
 /**
- * @author antonk
- * @since  8/28/14 - 6:44 PM
- */
+  * @author antonk
+  * @since 8/28/14 - 6:44 PM
+  */
 object Problem27 extends arithmetic.Implicits {
   //  P27 (**) Group the elements of a set into disjoint subsets.
   //  a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons?
@@ -38,12 +39,35 @@ object Problem27 extends arithmetic.Implicits {
   }
 
 
-
   def group[A](ns: List[Int], ls: List[A]): List[List[List[A]]] = {
     require(ns != null)
     require(ls != null)
+    require(ns.sum == ls.size)
 
-    List.empty
+    def groupRec(
+      groupsSizes: List[Int],
+      elements: List[A]
+    ): List[List[List[A]]] = {
+      groupsSizes match {
+        case Nil => List(Nil)
+        case n :: tail =>
+          val combinations: List[List[A]] = Problem26.combinations(n, elements)
+          combinations.flatMap {
+            c =>
+              val restElements: List[A] = removeAll(elements, c)
+              val nextGroups = groupRec(
+                tail,
+                restElements
+              )
+
+              nextGroups map {
+                x => c :: x
+              }
+          }
+      }
+    }
+
+    groupRec(ns, ls)
   }
 
 
@@ -54,4 +78,8 @@ object Problem27 extends arithmetic.Implicits {
     objectsCount.! / ns.map(_.!).product
   }
 
+
+  private def removeAll[T](xs: List[T], slice: List[T]): List[T] = {
+    xs.filterNot(slice.contains)
+  }
 }
