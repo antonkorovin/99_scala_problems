@@ -2,6 +2,8 @@ package org.ak.scala.nn_problems.p28
 
 import org.ak.scala.nn_problems.p10.Problem10
 
+import scala.annotation.tailrec
+
 /**
  * @author antonk
  * @since  10/14/14 - 7:16 AM
@@ -32,9 +34,6 @@ object Problem28 {
 
   def lsort[T](list: List[List[T]]): List[List[T]] = list.sortBy(_.size)
 
-  def lsortNonStandard[T](list: List[List[T]]): List[List[T]] = list
-
-
   def lsortFreq[A](list: List[List[A]]): List[List[A]] = {
     val frequencies = Map.from(
       Problem10.encodeTailRecursive(
@@ -48,7 +47,36 @@ object Problem28 {
     }
   }
 
-  def lsortFreqOpt[A](list: List[List[A]]): List[List[A]] = {
-    list
+  def lsortFreqOriginal[A](list: List[List[A]]): List[List[A]] = {
+    type ListWithSize = (Int, List[A])
+
+    val listWithSize: List[ListWithSize] = list.map(xs => xs.length -> xs)
+
+    // Strictly speaking, we need to use stable sorting here.
+    // See 'scala.util.Sorting'
+    val sortedBySize = listWithSize.sortBy(_._1)
+
+    @tailrec
+    def findSizeFrequency(
+      xs: List[ListWithSize],
+      result: List[(Int, List[ListWithSize])]
+    ): List[(Int, List[ListWithSize])] = {
+      xs match {
+        case head :: tail =>
+          val (packed, rest) = tail.span(_._1 == head._1)
+          val allPacked = head :: packed
+
+          findSizeFrequency(
+            rest,
+            (allPacked.size -> allPacked) :: result
+          )
+
+        case Nil => result
+      }
+    }
+
+    findSizeFrequency(sortedBySize, List.empty).sortBy(_._1).flatMap(
+      _._2.map(_._2)
+    )
   }
 }

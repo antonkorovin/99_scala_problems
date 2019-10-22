@@ -46,25 +46,15 @@ class Problem28Test
     ) shouldEqual sortedByLength
   }
 
-  test("lsortNonStandard example (with sort implementation)") {
-    pendingUntilFixed {
-      Problem28.lsortNonStandard(
-        srcList
-      ) shouldEqual sortedByLength
-    }
-  }
-
   test("lsortFreq example") {
     Problem28.lsortFreq(
       srcList
     ) shouldEqual sortedByLengthFrequency
   }
 
-  test("lsortFreqOpt example") {
-    pendingUntilFixed {
-      Problem28.lsortFreqOpt(
-        srcList
-      ) shouldEqual sortedByLengthFrequency
-    }
+  test("lsortFreqOriginal example") {
+    Problem28.lsortFreqOriginal(
+      srcList
+    ) shouldEqual sortedByLengthFrequency
   }
 }
