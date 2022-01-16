@@ -1,6 +1,7 @@
 package org.ak.scala.nn_problems.p50
 
-import scala.collection.mutable
+import scala.annotation.tailrec
+import scala.collection.immutable.SortedSet
 import scala.math.Ordering
 
 // P50 (***) Huffman code.
@@ -14,18 +15,29 @@ import scala.math.Ordering
 object Problem50 {
   case class Node(s: String, frequency: Int, left: Option[Node] = None, right: Option[Node] = None)
 
+  private implicit val priorityOrdering: Ordering[Node] = (x: Node, y: Node) => {
+    y.frequency compareTo x.frequency
+  }
+
   def huffman(list: List[(String, Int)]): List[(String, String)] = {
     encode(
       buildTree(list)
     )
   }
 
-  private def buildTree(list: List[(String, Int)]): Node = {
-    implicit val ordering: Ordering[Node] = (x: Node, y: Node) => {
-      y.frequency compareTo x.frequency
-    }
+  def huffmanImmutable(list: List[(String, Int)]): List[(String, String)] = {
+    encode(
+      buildTreeImmutable(
+        SortedSet.from(list.map(x => Node(x._1, x._2)))(priorityOrdering.reverse)
+      )
+    )
+  }
 
-    val queue = new mutable.PriorityQueue[Node]()
+
+  private def buildTree(list: List[(String, Int)]): Node = {
+    import scala.collection.mutable.PriorityQueue
+
+    val queue = new PriorityQueue[Node]()
     list.foreach(x => queue.enqueue(Node(x._1, x._2)))
 
     while (queue.size != 1) {
@@ -46,7 +58,29 @@ object Problem50 {
   }
 
 
-  private def encode(tree: Node): List[(String, String)] = {
+  @tailrec
+  private def buildTreeImmutable(list: SortedSet[Node]): Node = {
+    if (list.size == 1) {
+      list.head
+    } else {
+      val left = list.head
+      val right = list.tail.head
+
+      val newNode = Node(
+        s"${left.s}${right.s}",
+        left.frequency + right.frequency,
+        Some(left),
+        Some(right)
+      )
+
+      buildTreeImmutable(
+        list.drop(2) + newNode
+      )
+    }
+  }
+
+
+    private def encode(tree: Node): List[(String, String)] = {
     encode(Option(tree), "", List.empty)
   }
 
