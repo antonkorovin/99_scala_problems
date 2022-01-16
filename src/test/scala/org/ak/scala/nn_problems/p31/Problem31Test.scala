@@ -4,12 +4,12 @@ import org.ak.scala.nn_problems.arithmetic.Implicits._
 import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since  10/17/14 - 1:47 AM
- */
+  * @author antonk
+  * @since 10/17/14 - 1:47 AM
+  */
 class Problem31Test
   extends FunSuite
-          with Matchers {
+    with Matchers {
 
   private val methodsUnderTest = Seq(
     Problem31.isPrime _

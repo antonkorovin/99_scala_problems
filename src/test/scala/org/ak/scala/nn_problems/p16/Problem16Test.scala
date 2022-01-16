@@ -1,13 +1,14 @@
 package org.ak.scala.nn_problems.p16
 
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since  8/18/14 - 12:13 PM
- */
+  * @author antonk
+  * @since 8/18/14 - 12:13 PM
+  */
 class Problem16Test
-  extends FunSuite with Matchers {
+  extends FunSuite
+    with Matchers {
 
   test("example test") {
     import Problem16._

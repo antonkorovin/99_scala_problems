@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p36
 import org.ak.scala.nn_problems.p35.Problem35
 
 /**
- * @author antonk
- * @since  1/14/16 - 8:20 PM
- */
+  * @author antonk
+  * @since 1/14/16 - 8:20 PM
+  */
 object Problem36 {
   //  (**) Determine the prime factors of a given positive integer (2).
   //    Construct a list containing the prime factors and their multiplicity.

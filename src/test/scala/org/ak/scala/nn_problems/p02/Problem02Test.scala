@@ -6,13 +6,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/12/14 - 10:32 AM
- */
+  * @author antonk
+  * @since 8/12/14 - 10:32 AM
+  */
 class Problem02Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {

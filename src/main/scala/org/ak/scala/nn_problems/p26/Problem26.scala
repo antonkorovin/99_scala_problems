@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p26
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/21/14 - 6:24 PM
- */
+  * @author antonk
+  * @since 8/21/14 - 6:24 PM
+  */
 object Problem26 {
   //  P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
   //  In how many ways can a committee of 3 be chosen from a group of 12 people?
@@ -56,7 +56,7 @@ object Problem26 {
   ): List[List[T]] = {
 
     def combine(rest: List[T])(
-      combinator: (List[T]) => List[List[T]]
+      combinator: List[T] => List[List[T]]
     ): List[List[T]] =
       rest match {
         case Nil =>
@@ -65,7 +65,6 @@ object Problem26 {
         case _ :: tail =>
           combinator(rest) ::: combine(tail)(combinator)
       }
-
 
 
     if (n == 0) List(Nil)
@@ -117,14 +116,14 @@ object Problem26 {
   def combinationsBuiltin[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[List[T]] = {
     list.combinations(n).toList
   }
 
   def ncr(
     n: Int,
     k: Int
-  ) = {
+  ): Long = {
     require(n >= k, s"n($n) should be greater or equal to k($k)")
 
     @tailrec

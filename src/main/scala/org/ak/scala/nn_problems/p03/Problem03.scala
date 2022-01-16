@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p03
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/12/14 - 2:16 PM
- */
+  * @author antonk
+  * @since 8/12/14 - 2:16 PM
+  */
 object Problem03 {
   //  P03 (*) Find the Kth element of a list.
   //  By convention, the first element in the list is element 0.

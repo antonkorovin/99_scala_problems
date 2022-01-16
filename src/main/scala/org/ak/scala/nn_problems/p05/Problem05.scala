@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p05
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/13/14 - 12:00 PM
- */
+  * @author antonk
+  * @since 8/13/14 - 12:00 PM
+  */
 object Problem05 {
   //  P05 (*) Reverse a list.
   //    Example:
@@ -13,7 +13,7 @@ object Problem05 {
   //  res0: List[Int] = List(8, 5, 3, 2, 1, 1)
 
 
-  def reverse[T](list: List[T]) = {
+  def reverse[T](list: List[T]): List[T] = {
     @tailrec
     def reverseRec(
       rest: List[T],

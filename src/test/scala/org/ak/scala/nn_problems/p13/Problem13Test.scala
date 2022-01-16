@@ -3,11 +3,12 @@ package org.ak.scala.nn_problems.p13
 import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since 8/15/14 - 5:59 PM
- */
+  * @author antonk
+  * @since 8/15/14 - 5:59 PM
+  */
 class Problem13Test
-  extends FunSuite with Matchers {
+  extends FunSuite
+    with Matchers {
 
   test("example test") {
     import Problem13._

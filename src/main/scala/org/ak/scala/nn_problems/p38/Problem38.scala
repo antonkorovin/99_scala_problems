@@ -1,14 +1,14 @@
 package org.ak.scala.nn_problems.p38
 
+import com.github.nscala_time.time.Imports._
 import org.ak.scala.nn_problems.p34.Problem34
 import org.ak.scala.nn_problems.p37.Problem37
 import org.ak.scala.nn_problems.util.{DurationFormatter, TimeMeasuring}
-import com.github.nscala_time.time.Imports._
 
 /**
- * @author antonk
- * @since  1/15/16 - 1:33 AM
- */
+  * @author antonk
+  * @since 1/15/16 - 1:33 AM
+  */
 object Problem38
   extends App
     with TimeMeasuring
@@ -46,7 +46,7 @@ object Problem38
   // ////////////////////////////////////////////
 
   def timeOfP34(a: Int): Duration = withTimeCheck {
-     Problem34.totient(a)
+    Problem34.totient(a)
   }
 
   def timeOfP37(a: Int): Duration = withTimeCheck {

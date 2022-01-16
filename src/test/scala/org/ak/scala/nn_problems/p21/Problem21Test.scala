@@ -9,9 +9,9 @@ import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 import scala.util.Random
 
 /**
- * @author antonk
- * @since 8/19/14 - 2:23 PM
- */
+  * @author antonk
+  * @since 8/19/14 - 2:23 PM
+  */
 class Problem21Test
   extends FunSuite
     with Matchers
@@ -47,9 +47,9 @@ class Problem21Test
     def checkFirstAndLast[T](
       element: T,
       srcList: List[T],
-      functions:  ((Any, Int, List[Any]) => List[Any]) *
+      functions: ((Any, Int, List[Any]) => List[Any])*
     ): Unit = {
-      functions.foreach{
+      functions.foreach {
         f =>
           f(
             element,

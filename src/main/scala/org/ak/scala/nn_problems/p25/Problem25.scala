@@ -21,7 +21,7 @@ object Problem25 {
   // using Haskell. Implementing it in Scala is left as an exercise for the reader.
   // TODO Implement it here
 
-  def randomPermute[T](list: List[T]) = {
+  def randomPermute[T](list: List[T]): List[T] = {
     Problem23.randomSelect(
       list.size,
       list
@@ -29,14 +29,14 @@ object Problem25 {
   }
 
 
-  def randomPermuteUsingSort[T](list: List[T]) = {
+  def randomPermuteUsingSort[T](list: List[T]): List[T] = {
     list.zip(
       LazyList.continually(Random.nextInt())
     ).sortWith(_._2 < _._2).map(_._1)
   }
 
 
-  def perfectRandomPermute[T](list: List[T]) = {
+  def perfectRandomPermute[T](list: List[T]): List[T] = {
     // TODO Implement
     list
   }

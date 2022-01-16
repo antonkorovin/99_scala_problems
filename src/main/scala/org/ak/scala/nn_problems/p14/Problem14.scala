@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p14
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/18/14 - 11:19 AM
- */
+  * @author antonk
+  * @since 8/18/14 - 11:19 AM
+  */
 object Problem14 {
   //  P14 (*) Duplicate the elements of a list.
   //    Example:
@@ -13,7 +13,7 @@ object Problem14 {
   //  res0: List[Symbol] = List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
 
 
-  def duplicate[T](list: List[T]) = {
+  def duplicate[T](list: List[T]): List[T] = {
     @tailrec
     def duplicateRec(
       rest: List[T],
@@ -37,7 +37,7 @@ object Problem14 {
   }
 
 
-  def duplicateUsingFoldLeft[T](list: List[T]) = {
+  def duplicateUsingFoldLeft[T](list: List[T]): List[T] = {
     // Use 'reverse' before foldLeft is more effective than after
     list.reverse.foldLeft(List[T]()) {
       (duplicated, e) =>
@@ -46,7 +46,7 @@ object Problem14 {
   }
 
 
-  def duplicateUsingFoldRight[T](list: List[T]) = {
+  def duplicateUsingFoldRight[T](list: List[T]): List[T] = {
     list.foldRight(List[T]()) {
       (e, duplicated) =>
         e :: e :: duplicated
@@ -54,16 +54,15 @@ object Problem14 {
   }
 
 
-
-  def duplicateUsingMap[T](list: List[T]) = {
-    list.map{
+  def duplicateUsingMap[T](list: List[T]): List[T] = {
+    list.map {
       e => List(e, e)
     }.flatten
   }
 
 
-  def duplicateUsingFlatMap[T](list: List[T]) = {
-    list.flatMap{
+  def duplicateUsingFlatMap[T](list: List[T]): List[T] = {
+    list.flatMap {
       e => List(e, e)
     }
   }

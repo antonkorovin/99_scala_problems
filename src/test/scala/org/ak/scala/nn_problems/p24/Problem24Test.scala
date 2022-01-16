@@ -6,17 +6,16 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/21/14 - 4:22 PM
- */
+  * @author antonk
+  * @since 8/21/14 - 4:22 PM
+  */
 class Problem24Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
   test("example test") {
     val list = lotto(6, 49)
-
 
     list should have size 6
     list.max should be < 49
@@ -24,11 +23,11 @@ class Problem24Test
 
 
   test("various lists") {
-    forAll (
+    forAll(
       Gen.chooseNum(1, 1000)
     ) {
       n =>
-        forAll (
+        forAll(
           Gen.chooseNum(1, Int.MaxValue)
         ) {
           maxValue =>

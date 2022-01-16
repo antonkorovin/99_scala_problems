@@ -3,12 +3,12 @@ package org.ak.scala.nn_problems.p37
 import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since  1/15/16 - 12:06 AM
- */
+  * @author antonk
+  * @since 1/15/16 - 12:06 AM
+  */
 class Problem37Test
   extends FunSuite
-  with Matchers {
+    with Matchers {
 
   test("example") {
     Problem37.totientImproved(10) shouldEqual 4

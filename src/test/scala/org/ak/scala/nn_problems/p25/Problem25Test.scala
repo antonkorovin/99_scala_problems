@@ -6,13 +6,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/21/14 - 4:44 PM
- */
+  * @author antonk
+  * @since 8/21/14 - 4:44 PM
+  */
 class Problem25Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
   type PermuteMethod = List[Char] => List[Char]
 
@@ -28,7 +28,6 @@ class Problem25Test
         )
     }
   }
-
 
 
   test("test various lists") {

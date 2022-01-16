@@ -6,13 +6,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/13/14 - 2:06 PM
- */
+  * @author antonk
+  * @since 8/13/14 - 2:06 PM
+  */
 class Problem07Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
   private[this] val srcList = List[Any](
     List(
@@ -43,11 +43,9 @@ class Problem07Test
   }
 
 
-
   test("example test through flat map") {
     Problem07.flattenThroughFlatMap(srcList) shouldEqual expList
   }
-
 
 
   test("example test pseudo tail recursive") {
@@ -55,11 +53,9 @@ class Problem07Test
   }
 
 
-
   test("example test iterative") {
     Problem07.flattenIterative(srcList) shouldEqual expList
   }
-
 
 
   test("flatten plain lists") {

@@ -16,7 +16,7 @@ object Problem15 {
   def duplicateN[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     @tailrec
     def duplicateRec(
       rest: List[T],
@@ -43,7 +43,7 @@ object Problem15 {
   def duplicateNUsingFoldLeft[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     // Use 'reverse' before foldLeft is more effective than after
     list.reverse.foldLeft(List[T]()) {
       (duplicated, e) =>
@@ -55,7 +55,7 @@ object Problem15 {
   def duplicateNUsingFoldRight[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     list.foldRight(List[T]()) {
       (e, duplicated) =>
         List.fill(n)(e) ::: duplicated
@@ -66,7 +66,7 @@ object Problem15 {
   def duplicateNUsingMap[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     list.map{
       e => List.fill(n)(e)
     }.flatten
@@ -76,7 +76,7 @@ object Problem15 {
   def duplicateNUsingFlatMap[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     list.flatMap{
       e => List.fill(n)(e)
     }

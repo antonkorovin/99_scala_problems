@@ -6,7 +6,7 @@ package org.ak.scala.nn_problems.p25
  */
 
 object BinaryTree {
-  def apply[T](values: T*) = {
+  def apply[T](values: T*): BinaryTree[T] = {
     values.foldLeft(EmptyLeaf: BinaryTree[T]) {
       (tree, e) =>
         tree.add(e)
@@ -31,11 +31,11 @@ case class Node[T](
 ) extends BinaryTree[T] {
   override def empty = false
 
-  override def full = left.full && right.full
+  override def full: Boolean = left.full && right.full
 
-  override def size = 1 + left.size + right.size
+  override def size: Int = 1 + left.size + right.size
 
-  override def add[VT >: T](newValue: VT) = {
+  override def add[VT >: T](newValue: VT): BinaryTree[VT] = {
     (left, right) match {
       case (Leaf(_), _) =>
         Node(
@@ -65,7 +65,7 @@ case class Leaf[T](value: T) extends BinaryTree[T] {
 
   override def size = 1
 
-  override def add[VT >: T](newValue: VT) = {
+  override def add[VT >: T](newValue: VT): BinaryTree[VT] = {
     Node(value, Leaf(newValue), EmptyLeaf)
   }
 }
@@ -77,7 +77,7 @@ case object EmptyLeaf extends BinaryTree[Nothing] {
 
   override def size = 0
 
-  override def add[T](newValue: T) = {
+  override def add[T](newValue: T): BinaryTree[T] = {
     Leaf(newValue)
   }
 }

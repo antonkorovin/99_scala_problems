@@ -7,13 +7,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/18/14 - 2:23 PM
- */
+  * @author antonk
+  * @since 8/18/14 - 2:23 PM
+  */
 class Problem18Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {
@@ -37,7 +37,6 @@ class Problem18Test
       7
     )
   }
-
 
 
   test("various lists") {
@@ -94,5 +93,10 @@ class Problem18Test
       list
     ) shouldEqual list.slice(from, until)
 
+    sliceUsingBuiltinSlice(
+      from,
+      until,
+      list
+    ) shouldEqual list.slice(from, until)
   }
 }

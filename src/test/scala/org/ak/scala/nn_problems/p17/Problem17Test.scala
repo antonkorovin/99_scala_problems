@@ -7,13 +7,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/18/14 - 2:23 PM
- */
+  * @author antonk
+  * @since 8/18/14 - 2:23 PM
+  */
 class Problem17Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {
@@ -37,7 +37,6 @@ class Problem17Test
       srcList.splitAt(3)
     )
   }
-
 
 
   test("various lists") {

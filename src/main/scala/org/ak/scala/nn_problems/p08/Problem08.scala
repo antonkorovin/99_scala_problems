@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p08
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/14/14 - 5:14 PM
- */
+  * @author antonk
+  * @since 8/14/14 - 5:14 PM
+  */
 object Problem08 {
   //  P08 (**) Eliminate consecutive duplicates of list elements.
   //    If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
@@ -47,7 +47,6 @@ object Problem08 {
   }
 
 
-
   def compressTailRecUsingDropWhile[T](list: List[T]): List[T] = {
     @tailrec
     def compressRec(
@@ -58,7 +57,7 @@ object Problem08 {
         case Nil =>
           compressed
 
-        case head :: tail =>
+        case head :: _ =>
           compressRec(
             rest.dropWhile(_ == head),
             head :: compressed
@@ -74,7 +73,6 @@ object Problem08 {
   }
 
 
-
   def compressUsingFoldLeft[T](list: List[T]): List[T] = {
     list.foldLeft(List[T]()) {
       (cmp, next) =>
@@ -82,7 +80,6 @@ object Problem08 {
         else cmp
     }.reverse
   }
-
 
 
   def compressUsingFoldRight[T](list: List[T]): List[T] = {

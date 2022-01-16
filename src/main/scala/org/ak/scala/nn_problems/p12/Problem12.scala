@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p12
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/15/14 - 3:52 PM
- */
+  * @author antonk
+  * @since 8/15/14 - 3:52 PM
+  */
 object Problem12 {
   //  P12 (**) Decode a run-length encoded list.
   //    Given a run-length code list generated as specified in problem P10, construct its uncompressed version.
@@ -14,7 +14,7 @@ object Problem12 {
   //    scala> decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
   //  res0: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 
-  def decode[T](list: List[(Int, T)]) = {
+  def decode[T](list: List[(Int, T)]): List[T] = {
     @tailrec
     def decodeRec(
       rest: List[(Int, T)],
@@ -38,7 +38,7 @@ object Problem12 {
   }
 
 
-  def decodeUsingFoldLeft[T](list: List[(Int, T)]) = {
+  def decodeUsingFoldLeft[T](list: List[(Int, T)]): List[T] = {
     list.foldLeft(List[T]()) {
       (decoded, e) =>
         List.fill(e._1)(e._2) ::: decoded
@@ -46,7 +46,7 @@ object Problem12 {
   }
 
 
-  def decodeUsingFoldRight[T](list: List[(Int, T)]) = {
+  def decodeUsingFoldRight[T](list: List[(Int, T)]): List[T] = {
     list.foldRight(List[T]()) {
       (e, decoded) =>
         List.fill(e._1)(e._2) ::: decoded
@@ -54,15 +54,20 @@ object Problem12 {
   }
 
 
-  def decodeUsingMap[T](list: List[(Int, T)]) = {
+  def decodeUsingMap[T](list: List[(Int, T)]): List[T] = {
     list.map {
       e =>
         List.fill(e._1)(e._2)
     }.flatten
   }
 
+  def decodeUsingFlatMap[T](list: List[(Int, T)]): List[T] = {
+    list.flatMap {
+      e => List.fill(e._1)(e._2)
+    }
+  }
 
-  def decodeUsingFor[T](list: List[(Int, T)]) = {
+  def decodeUsingFor[T](list: List[(Int, T)]): List[T] = {
     (for (e <- list) yield List.fill(e._1)(e._2)).flatten
   }
 }

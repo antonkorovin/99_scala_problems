@@ -5,9 +5,9 @@ import org.ak.scala.nn_problems.p10.Problem10
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  10/14/14 - 7:16 AM
- */
+  * @author antonk
+  * @since 10/14/14 - 7:16 AM
+  */
 object Problem28 {
   //  P28 (**) Sorting a list of lists according to length of sublists.
   //    a) We suppose that a list contains elements that are lists themselves.
@@ -38,7 +38,9 @@ object Problem28 {
     val frequencies = Map.from(
       Problem10.encodeTailRecursive(
         list.map(_.length).sorted
-      ) map { _.swap }
+      ) map {
+        _.swap
+      }
     )
 
     list.sortWith {

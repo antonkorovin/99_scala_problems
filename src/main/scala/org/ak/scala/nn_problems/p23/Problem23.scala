@@ -6,9 +6,9 @@ import scala.annotation.tailrec
 import scala.util.Random
 
 /**
- * @author antonk
- * @since  8/21/14 - 2:57 PM
- */
+  * @author antonk
+  * @since 8/21/14 - 2:57 PM
+  */
 object Problem23 {
   //  P23 (**) Extract a given number of randomly selected elements from a list.
   //  Example:
@@ -18,9 +18,9 @@ object Problem23 {
 
 
   def randomSelect[T](
-    n:  Int,
+    n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     @tailrec
     def randomSelectRec(
       current: Int,
@@ -29,7 +29,7 @@ object Problem23 {
     ): List[T] = {
       if (current != n) {
         val (newRest, removed) = Problem20.removeAt(
-           Random.nextInt(rest.size),
+          Random.nextInt(rest.size),
           rest
         )
 
@@ -44,11 +44,10 @@ object Problem23 {
     }
 
 
-
     randomSelectRec(
-      0,
-      list,
-      Nil
+      current = 0,
+      rest = list,
+      selected = Nil
     )
   }
 }

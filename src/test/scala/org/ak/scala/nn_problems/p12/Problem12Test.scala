@@ -3,11 +3,12 @@ package org.ak.scala.nn_problems.p12
 import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since 8/15/14 - 3:54 PM
- */
+  * @author antonk
+  * @since 8/15/14 - 3:54 PM
+  */
 class Problem12Test
-  extends FunSuite with Matchers {
+  extends FunSuite
+    with Matchers {
 
 
   test("example test") {
@@ -43,5 +44,6 @@ class Problem12Test
     decodeUsingFoldLeft(srcList) shouldEqual expList
     decodeUsingFoldRight(srcList) shouldEqual expList
     decodeUsingMap(srcList) shouldEqual expList
+    decodeUsingFlatMap(srcList) shouldEqual expList
   }
 }

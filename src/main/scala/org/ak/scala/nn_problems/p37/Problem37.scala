@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p37
 import org.ak.scala.nn_problems.p36.Problem36
 
 /**
- * @author antonk
- * @since  1/15/16 - 12:06 AM
- */
+  * @author antonk
+  * @since 1/15/16 - 12:06 AM
+  */
 object Problem37 {
   //  (**) Calculate Euler's totient function phi(m) (improved).
   //    See problem P34 for the definition of Euler's totient function.
@@ -17,13 +17,13 @@ object Problem37 {
   //
   //  Note that ab stands for the bth power of a.
 
-  def totientImproved(a: Int) = {
+  def totientImproved(a: Int): Int = {
     Problem36
       .primeFactorMultiplicity(a)
       .filter(_._1 != 1)
       .foldLeft(1) {
-      (t, p) =>
-        t * (p._1 - 1) * Math.pow(p._1, p._2 - 1).toInt
-    }
+        (t, p) =>
+          t * (p._1 - 1) * Math.pow(p._1, p._2 - 1).toInt
+      }
   }
 }

@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p07
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/13/14 - 12:44 PM
- */
+  * @author antonk
+  * @since 8/13/14 - 12:44 PM
+  */
 object Problem07 {
   //  P07 (**) Flatten a nested list structure.
   //  Example:
@@ -103,16 +103,16 @@ object Problem07 {
     var flattenList = Nil: List[Any]
 
     for (e <- list) {
-        e match {
-          case subList: List[_] =>
-            flattenList = flattenIterative(
-              subList
-            ).reverse ::: flattenList
+      e match {
+        case subList: List[_] =>
+          flattenList = flattenIterative(
+            subList
+          ).reverse ::: flattenList
 
-          case singleElement =>
-            flattenList = singleElement :: flattenList
-        }
+        case singleElement =>
+          flattenList = singleElement :: flattenList
       }
+    }
 
 
     flattenList.reverse

@@ -35,9 +35,9 @@ object Problem50 {
 
 
   private def buildTree(list: List[(String, Int)]): Node = {
-    import scala.collection.mutable.PriorityQueue
+    import scala.collection.mutable
 
-    val queue = new PriorityQueue[Node]()
+    val queue = new mutable.PriorityQueue[Node]()
     list.foreach(x => queue.enqueue(Node(x._1, x._2)))
 
     while (queue.size != 1) {
@@ -80,7 +80,7 @@ object Problem50 {
   }
 
 
-    private def encode(tree: Node): List[(String, String)] = {
+  private def encode(tree: Node): List[(String, String)] = {
     encode(Option(tree), "", List.empty)
   }
 

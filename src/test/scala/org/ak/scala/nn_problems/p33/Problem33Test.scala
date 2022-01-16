@@ -5,15 +5,15 @@ import org.ak.scala.nn_problems.arithmetic.Implicits._
 import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since  10/30/14 - 2:24 AM
- */
+  * @author antonk
+  * @since 10/30/14 - 2:24 AM
+  */
 class Problem33Test
   extends FunSuite
-          with Matchers {
+    with Matchers {
 
   test("example") {
-      35.isCoprimeTo(64) shouldBe true
+    35.isCoprimeTo(64) shouldBe true
   }
 
 }

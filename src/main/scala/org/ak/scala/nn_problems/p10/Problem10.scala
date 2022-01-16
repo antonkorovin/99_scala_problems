@@ -5,9 +5,9 @@ import org.ak.scala.nn_problems.p09.Problem09
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/15/14 - 3:11 PM
- */
+  * @author antonk
+  * @since 8/15/14 - 3:11 PM
+  */
 object Problem10 {
   //  P10 (*) Run-length encoding of a list.
   //    Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as tuples (N, E) where N is the number of duplicates of the element E.
@@ -17,7 +17,7 @@ object Problem10 {
   //  res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
 
 
-  def encodeTailRecursive[T](list: List[T]) = {
+  def encodeTailRecursive[T](list: List[T]): List[(Int, T)] = {
     @tailrec
     def encodeRec(
       rest: List[List[T]],
@@ -42,21 +42,19 @@ object Problem10 {
   }
 
 
-
-  def encodeUsingFor[T](list: List[T]) = {
+  def encodeUsingFor[T](list: List[T]): List[(Int, T)] = {
     for (basket <- Problem09.packTailRecursive(list)) yield (basket.length, basket.head)
   }
 
 
-
-  def encodeUsingMap[T](list: List[T]) = {
+  def encodeUsingMap[T](list: List[T]): List[(Int, T)] = {
     Problem09.packTailRecursive(list).map(
       basket => (basket.length, basket.head)
     )
   }
 
 
-  def encodeUsingFoldLeft[T](list: List[T]) = {
+  def encodeUsingFoldLeft[T](list: List[T]): List[(Int, T)] = {
     Problem09.packTailRecursive(list).foldLeft(List[(Int, T)]())(
       (encoded, basket) =>
         (basket.length, basket.head) :: encoded
@@ -64,7 +62,7 @@ object Problem10 {
   }
 
 
-  def encodeUsingFoldRight[T](list: List[T]) = {
+  def encodeUsingFoldRight[T](list: List[T]): List[(Int, T)] = {
     Problem09.packTailRecursive(list).foldRight(List[(Int, T)]())(
       (basket, encoded) =>
         (basket.length, basket.head) :: encoded

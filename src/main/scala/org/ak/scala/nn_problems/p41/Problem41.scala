@@ -27,7 +27,7 @@ object Problem41 {
 
   def goldbachList(r: Range): List[(Int, Int)] = {
     r.filter(_ > 2).filter(_ % 2 == 0).map {
-        Problem40.goldbachConjecture
+      Problem40.goldbachConjecture
     }.toList
   }
 

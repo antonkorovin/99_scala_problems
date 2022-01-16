@@ -1,13 +1,12 @@
 package org.ak.scala.nn_problems.p02
 
 import java.util.NoSuchElementException
-
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/12/14 - 10:30 AM
- */
+  * @author antonk
+  * @since 8/12/14 - 10:30 AM
+  */
 object Problem02 {
   //  P02 (*) Find the last but one element of a list.
   //  Example:
@@ -24,7 +23,7 @@ object Problem02 {
     case penultimate :: _ :: Nil =>
       penultimate
 
-    case head :: tail =>
+    case _ :: tail =>
       penultimateRecursive(tail)
   }
 }

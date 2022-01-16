@@ -6,13 +6,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/21/14 - 2:23 PM
- */
+  * @author antonk
+  * @since 8/21/14 - 2:23 PM
+  */
 class Problem22Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
   test("example test") {
     val expList = List(4, 5, 6, 7, 8, 9)

@@ -16,14 +16,14 @@ object Problem16 {
   def drop[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     @tailrec
     def dropRec(
       current: Int,
       rest: List[T],
       filtered: List[T]
     ): List[T] = rest match {
-      case head :: tail if current % n == 0 =>
+      case _ :: tail if current % n == 0 =>
         dropRec(
           current + 1,
           tail,
@@ -56,7 +56,8 @@ object Problem16 {
   def dropV2[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
+    @tailrec
     def dropRec(
       current: Int,
       rest: List[T],
@@ -92,7 +93,7 @@ object Problem16 {
   def dropUsingForAndZipWithIndex[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     for ((e, index) <- list.zipWithIndex if (index + 1) % n != 0) yield e
   }
 
@@ -100,10 +101,10 @@ object Problem16 {
   def dropUsingFilterAndZipWithIndex[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     list.zipWithIndex.filter {
       elementWithIndex =>
         (elementWithIndex._2 + 1) % n != 0
-    }.unzip._1
+    }.map(_._1)
   }
 }

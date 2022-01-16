@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p09
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/15/14 - 11:04 AM
- */
+  * @author antonk
+  * @since 8/15/14 - 11:04 AM
+  */
 object Problem09 {
   //  P09 (**) Pack consecutive duplicates of list elements into sublists.
   //    If a list contains repeated elements they should be placed in separate sublists.
@@ -15,7 +15,7 @@ object Problem09 {
   //  res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
 
 
-  def packTailRecursive[T](list: List[T]) = {
+  def packTailRecursive[T](list: List[T]): List[List[T]] = {
     @tailrec
     def packRec(
       rest: List[T],
@@ -49,7 +49,7 @@ object Problem09 {
 
         case Nil =>
           if (elements.isEmpty) packed
-          else                  elements :: packed
+          else elements :: packed
       }
 
 
@@ -59,8 +59,7 @@ object Problem09 {
   }
 
 
-
-  def packUsingTakeAndDropWhile[T](list: List[T]) = {
+  def packUsingTakeAndDropWhile[T](list: List[T]): List[List[T]] = {
     @tailrec
     def packRec(
       rest: List[T],
@@ -86,8 +85,7 @@ object Problem09 {
   }
 
 
-
-  def packUsingSpan[T](list: List[T]) = {
+  def packUsingSpan[T](list: List[T]): List[List[T]] = {
     @tailrec
     def packRec(
       rest: List[T],
@@ -115,8 +113,7 @@ object Problem09 {
   }
 
 
-
-  def packUsingFoldLeft[T](list: List[T]) = {
+  def packUsingFoldLeft[T](list: List[T]): List[List[T]] = {
     list.foldLeft(List[List[T]]()) {
       (cmp, next) =>
         if (cmp.isEmpty) {
@@ -130,8 +127,7 @@ object Problem09 {
   }
 
 
-
-  def packUsingFoldRight[T](list: List[T]) = {
+  def packUsingFoldRight[T](list: List[T]): List[List[T]] = {
     list.foldRight(List[List[T]]()) {
       (next, cmp) =>
         if (cmp.isEmpty) {

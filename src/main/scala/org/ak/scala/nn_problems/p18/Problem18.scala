@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p18
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/18/14 - 4:52 PM
- */
+  * @author antonk
+  * @since 8/18/14 - 4:52 PM
+  */
 object Problem18 {
   //  P18 (**) Extract a slice from a list.
   //    Given two indices, I and K, the slice is the list containing the elements from and including the Ith element up to but not including the Kth element of the original list. Start counting the elements with 0.
@@ -19,7 +19,7 @@ object Problem18 {
     fromIndex: Int,
     untilIndex: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     @tailrec
     def sliceRec(
       rest: List[T],
@@ -57,12 +57,11 @@ object Problem18 {
   }
 
 
-
   def sliceUsingIfGuards[T](
     fromIndex: Int,
     untilIndex: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     @tailrec
     def sliceRec(
       rest: List[T],
@@ -104,9 +103,21 @@ object Problem18 {
     fromIndex: Int,
     untilIndex: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     require(fromIndex <= untilIndex)
 
     list.drop(fromIndex).take(untilIndex - fromIndex)
   }
+
+
+  def sliceUsingBuiltinSlice[T](
+    fromIndex: Int,
+    untilIndex: Int,
+    list: List[T]
+  ): List[T] = {
+    require(fromIndex <= untilIndex)
+
+    list.slice(fromIndex, fromIndex + untilIndex - fromIndex)
+  }
 }
+

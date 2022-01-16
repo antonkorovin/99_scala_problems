@@ -1,20 +1,20 @@
 package org.ak.scala.nn_problems.p01
 
-import java.util.NoSuchElementException
-
 import org.ak.scala.nn_problems.GenUtil
 import org.scalacheck.Gen
 import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
+import java.util.NoSuchElementException
+
 /**
- * @author antonk
- * @since  8/11/14 - 11:30 PM
- */
+  * @author antonk
+  * @since 8/11/14 - 11:30 PM
+  */
 class Problem01Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
   val srcList = List(
     1,
@@ -65,7 +65,6 @@ class Problem01Test
   }
 
 
-
   test("recursive last with empty list") {
     import org.ak.scala.nn_problems.p01.Problem01.recursiveLast
 
@@ -82,7 +81,6 @@ class Problem01Test
         }
     }
   }
-
 
 
   test("iterative last with empty list") {

@@ -4,9 +4,9 @@ import scala.annotation.tailrec
 import scala.util.Random
 
 /**
- * @author antonk
- * @since  8/21/14 - 4:13 PM
- */
+  * @author antonk
+  * @since 8/21/14 - 4:13 PM
+  */
 object Problem24 {
   //  P24 (*) Lotto: Draw N different random numbers from the set 1..M.
   //    Example:
@@ -17,7 +17,7 @@ object Problem24 {
   def lotto(
     n: Int,
     maxValue: Int
-  ) = {
+  ): List[Int] = {
     @tailrec
     def lottoRec(
       current: Int,

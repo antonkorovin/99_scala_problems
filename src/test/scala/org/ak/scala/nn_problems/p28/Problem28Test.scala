@@ -1,14 +1,14 @@
 package org.ak.scala.nn_problems.p28
 
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since  10/17/14 - 1:33 AM
- */
+  * @author antonk
+  * @since 10/17/14 - 1:33 AM
+  */
 class Problem28Test
   extends FunSuite
-          with Matchers {
+    with Matchers {
 
   private val srcList: List[List[Symbol]] = List(
     List(Symbol("a"), Symbol("b"), Symbol("c"))

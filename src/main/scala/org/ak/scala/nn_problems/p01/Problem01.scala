@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p01
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/11/14 - 11:25 PM
- */
+  * @author antonk
+  * @since 8/11/14 - 11:25 PM
+  */
 object Problem01 {
   //  P01 (*) Find the last element of a list.
   //  Example:
@@ -17,7 +17,7 @@ object Problem01 {
     case lastElement :: Nil =>
       lastElement
 
-    case head :: tail =>
+    case _ :: tail =>
       recursiveLast(tail)
 
     case Nil =>

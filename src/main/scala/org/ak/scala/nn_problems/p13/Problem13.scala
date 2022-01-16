@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p13
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/15/14 - 5:57 PM
- */
+  * @author antonk
+  * @since 8/15/14 - 5:57 PM
+  */
 object Problem13 {
   //  P13 (**) Run-length encoding of a list (direct solution).
   //    Implement the so-called run-length encoding data compression method directly. I.e. don't use other methods you've written (like P09's pack); do all the work directly.
@@ -15,7 +15,7 @@ object Problem13 {
   //  res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
 
 
-  def encodeDirectTailRec[T](list: List[T]) = {
+  def encodeDirectTailRec[T](list: List[T]): List[(Int, T)] = {
     @tailrec
     def encodeRec(
       rest: List[T],
@@ -49,8 +49,7 @@ object Problem13 {
   }
 
 
-
-  def encodeDirectUsingFoldLeft[T](list: List[T]) = {
+  def encodeDirectUsingFoldLeft[T](list: List[T]): List[(Int, T)] = {
     list.foldLeft(List[(Int, T)]()) {
       (encoded, e) =>
         if (encoded.isEmpty) {
@@ -65,7 +64,7 @@ object Problem13 {
   }
 
 
-  def encodeDirectUsingFoldRight[T](list: List[T]) = {
+  def encodeDirectUsingFoldRight[T](list: List[T]): List[(Int, T)] = {
     list.foldRight(List[(Int, T)]()) {
       (e, encoded) =>
         if (encoded.isEmpty) {

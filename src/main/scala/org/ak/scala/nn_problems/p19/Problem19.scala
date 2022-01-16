@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p19
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/19/14 - 2:21 PM
- */
+  * @author antonk
+  * @since 8/19/14 - 2:21 PM
+  */
 object Problem19 {
   //  P19 (**) Rotate a list N places to the left.
   //    Examples:
@@ -19,7 +19,7 @@ object Problem19 {
   def rotate[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     @tailrec
     def rotateRecLeft(
       current: Int,

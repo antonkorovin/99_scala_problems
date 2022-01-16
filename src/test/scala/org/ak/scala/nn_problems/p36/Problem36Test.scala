@@ -1,15 +1,15 @@
 package org.ak.scala.nn_problems.p36
 
 import org.ak.scala.nn_problems.arithmetic.Implicits._
-import org.scalatest.{Matchers, FunSuite}
+import org.scalatest.{FunSuite, Matchers}
 
 /**
- * @author antonk
- * @since  1/14/16 - 8:22 PM
- */
+  * @author antonk
+  * @since 1/14/16 - 8:22 PM
+  */
 class Problem36Test
   extends FunSuite
-  with Matchers {
+    with Matchers {
 
 
   test("example") {

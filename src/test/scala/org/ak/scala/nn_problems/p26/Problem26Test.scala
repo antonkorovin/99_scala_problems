@@ -6,13 +6,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/21/14 - 6:27 PM
- */
+  * @author antonk
+  * @since 8/21/14 - 6:27 PM
+  */
 class Problem26Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
 
   test("ncr test") {
@@ -34,7 +34,6 @@ class Problem26Test
     ncr(7, 4) shouldEqual 35
     ncr(8, 4) shouldEqual 70
   }
-
 
 
   test("combinations length test") {
@@ -93,7 +92,6 @@ class Problem26Test
       }
     }
   }
-
 
 
   private def combinationFunctions[T] = List(

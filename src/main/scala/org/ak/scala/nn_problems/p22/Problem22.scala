@@ -4,7 +4,7 @@ import scala.annotation.tailrec
 
 /**
   * @author antonk
-  * @since  8/21/14 - 6:34 PM
+  * @since 8/21/14 - 6:34 PM
   */
 object Problem22 {
   //  P22 (*) Create a list containing all integers within a given range.
@@ -15,7 +15,7 @@ object Problem22 {
   def range(
     start: Int,
     finish: Int
-  ) = {
+  ): List[Int] = {
     require(start <= finish)
 
     @tailrec

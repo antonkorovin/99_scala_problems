@@ -4,13 +4,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  9/17/14 - 11:49 PM
- */
+  * @author antonk
+  * @since 9/17/14 - 11:49 PM
+  */
 class BinaryTreeTest
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
   test("empty tree") {
     EmptyLeaf.empty shouldBe true

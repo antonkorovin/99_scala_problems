@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p17
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/18/14 - 2:23 PM
- */
+  * @author antonk
+  * @since 8/18/14 - 2:23 PM
+  */
 object Problem17 {
   //  P17 (*) Split a list into two parts.
   //    The length of the first part is given. Use a Tuple for your result.
@@ -18,7 +18,8 @@ object Problem17 {
   def split[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): (List[T], List[T]) = {
+    @tailrec
     def splitRec(
       current: Int,
       rest: List[T],
@@ -47,7 +48,7 @@ object Problem17 {
   def splitV2[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): (List[T], List[T]) = {
     @tailrec
     def splitRec(
       current: Int,
@@ -77,11 +78,10 @@ object Problem17 {
   }
 
 
-
   def splitUsingTakeAndDrop[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): (List[T], List[T]) = {
     val prefix = list.take(n)
     val suffix = list.drop(n)
 

@@ -7,13 +7,13 @@ import org.scalatest.{FunSuite, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /**
- * @author antonk
- * @since  8/19/14 - 2:23 PM
- */
+  * @author antonk
+  * @since 8/19/14 - 2:23 PM
+  */
 class Problem19Test
   extends FunSuite
-          with Matchers
-          with ScalaCheckDrivenPropertyChecks {
+    with Matchers
+    with ScalaCheckDrivenPropertyChecks {
 
 
   test("example test") {
@@ -79,7 +79,6 @@ class Problem19Test
   }
 
 
-
   test("various lists") {
     forAll(
       Gen.listOf(
@@ -100,7 +99,6 @@ class Problem19Test
         )
     }
   }
-
 
 
   // TODO: Find out better way than using Any

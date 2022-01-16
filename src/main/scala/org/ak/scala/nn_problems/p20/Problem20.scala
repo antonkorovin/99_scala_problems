@@ -1,13 +1,12 @@
 package org.ak.scala.nn_problems.p20
 
 import java.util.NoSuchElementException
-
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/20/14 - 5:34 PM
- */
+  * @author antonk
+  * @since 8/20/14 - 5:34 PM
+  */
 object Problem20 {
   //  P20 (*) Remove the Kth element from a list.
   //  Return the list and the removed element in a Tuple. Elements are numbered from 0.
@@ -19,13 +18,13 @@ object Problem20 {
   def removeAt[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): (List[T], T) = {
     @tailrec
     def removeAtRec(
       n: Int,
       rest: List[T],
       prefix: List[T]
-    ): (List[T], T) = (n, rest) match{
+    ): (List[T], T) = (n, rest) match {
       case (0, head :: tail) =>
         (prefix.reverse ::: tail, head)
 
@@ -49,11 +48,10 @@ object Problem20 {
   }
 
 
-
   def removeAtUsingSplitAt[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): (List[T], T) = {
     if (n < 0 || n > list.size) {
       throw new NoSuchElementException()
     }
@@ -64,11 +62,10 @@ object Problem20 {
   }
 
 
-
   def removeAtUsingTakeAndDrop[T](
     n: Int,
     list: List[T]
-  ) = {
+  ): (List[T], T) = {
     if (n < 0 || n > list.size) {
       throw new NoSuchElementException()
     }

@@ -3,9 +3,9 @@ package org.ak.scala.nn_problems.p21
 import scala.annotation.tailrec
 
 /**
- * @author antonk
- * @since  8/20/14 - 6:34 PM
- */
+  * @author antonk
+  * @since 8/20/14 - 6:34 PM
+  */
 object Problem21 {
   //  P21 (*) Insert an element at a given position into a list.
   //    Example:
@@ -16,7 +16,7 @@ object Problem21 {
     element: T,
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     @tailrec
     def insertAtRec(
       current: Int,
@@ -24,7 +24,7 @@ object Problem21 {
       prefix: List[T]
     ): List[T] = (current, rest) match {
       case (0, _) | (_, Nil) =>
-        prefix.reverse ::: (element ::rest)
+        prefix.reverse ::: (element :: rest)
 
 
       case (_, head :: tail) =>
@@ -44,22 +44,20 @@ object Problem21 {
   }
 
 
-
   def insertAtUsingTakeAndDrop[T](
     element: T,
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     list.take(n) ::: element :: list.drop(n)
   }
-
 
 
   def insertAtUsingSplitAt[T](
     element: T,
     n: Int,
     list: List[T]
-  ) = {
+  ): List[T] = {
     val (prefix, suffix) = list.splitAt(n)
     prefix ::: element :: suffix
   }
