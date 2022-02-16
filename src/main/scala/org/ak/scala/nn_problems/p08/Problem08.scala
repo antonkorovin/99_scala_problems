@@ -21,19 +21,20 @@ object Problem08 {
       compressed: List[T],
       element: T = null.asInstanceOf[T]
     ): List[T] = rest match {
-      case head :: tail if head != element || compressed.isEmpty =>
-        compressRec(
-          tail,
-          head :: compressed,
-          head
-        )
-
-      case head :: tail if head == element =>
-        compressRec(
-          tail,
-          compressed,
-          element
-        )
+      case head :: tail =>
+        if (head != element) {
+          compressRec(
+            tail,
+            head :: compressed,
+            head
+          )
+        } else {
+          compressRec(
+            tail,
+            compressed,
+            element
+          )
+        }
 
       case Nil =>
         compressed.reverse

@@ -69,7 +69,10 @@ object Problem18 {
       leftToTake: Int,
       sliced: List[T]
     ): List[T] = rest match {
-      case _ | Nil if leftToDrop == 0 && leftToTake == 0 =>
+      case Nil =>
+        sliced.reverse
+
+      case _ if leftToDrop == 0 && leftToTake == 0 =>
         sliced.reverse
 
       case head :: tail if leftToDrop == 0 =>
